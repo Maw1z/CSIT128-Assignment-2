@@ -1,0 +1,89 @@
+main {
+    width: 85%;
+    margin-top: 135px;
+    margin-inline: auto;
+    
+    color: var(--primarycolor);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+#formcontainer {
+    width: 35vw;
+    align-items: center;
+}
+
+#formcontainer h1 {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 52px;
+    text-align: center;
+}
+
+input {
+    margin-top: -5px;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    padding-left: 20px;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    border: none;
+}
+
+#fileinput::-webkit-file-upload-button {
+    font-family: "Josefin Sans", sans-serif;
+    background: var(--primarycolor);
+    color: var(--secondarycolor);
+    border: none;
+    padding: 10px 30px; 
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#fileinput {
+    margin-top: 10px;
+    background-color: var(--secondarycolor);
+}
+
+input[type="radio"] {
+    width: 25px;
+    margin: 0;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+    
+textarea {
+    font-size: 16px;
+    font-family: "Josefin Sans", sans-serif;
+    background-color: #d9d9d9;
+    border: none;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+label {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 24px; 
+}
+    
+.recipecat {
+    align-items: center;
+    width: 100%;
+    padding: 50px 50px 0px 50px;
+}
+        
+button {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 28px;
+    background-color: var(--primarycolor);
+    color: #FFFFFF;
+    padding: 15px 70px;
+    border-radius: 40px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    border: none;
+}

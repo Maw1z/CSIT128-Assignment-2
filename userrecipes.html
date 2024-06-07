@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importing Instrument Serif amd Josefin sans font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Linking favicon -->
+    <link rel="icon" type="image/x-icon" href="Header/recipes-svgrepo-com.svg">
+    <!-- Linking CSS styles files -->
+    <link rel="stylesheet" href="styles/styles.css">    <!--Main styles sheet-->
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/userrecipes.css">
+    <title>My Recipes</title>
+</head>
+<body>
+    <header>
+        <div id="header_leftside">
+            <div class="companyname firstline">
+                128
+                <img src="Header/recipes-svgrepo-com.svg" alt="128 Recipes logo icon">
+            </div>
+            <div class="companyname">
+                Recipes
+            </div>
+        </div>
+        <div id="header_rightside">
+            <div class="headerdivs">
+                <a class="headerlinks" href="index.html">
+                    Home
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="recipesgrid.html">
+                    All Recipes
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="Create.html">
+                    Create
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="userrecipes.html">
+                    My Recipes
+                </a>
+            </div>
+            <div id="userbutton">
+                <a href="">
+                    <img src="Header/MaterialSymbolsPersonOutline.svg" alt="user icon" id="usericon">
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="myrecipes">
+            <h1>
+                Manage your culinary creations with ease - 
+                <br>
+                update, delete, and organize all your personal recipes in one place.
+            </h1>
+        </div>
+        <div id="cardcontainer">
+            <div class="recipecard">
+                <div class="manage">
+                    <div class="managebuttonsdiv">
+                        <button>
+                            <a href="edit.html">
+                                <img src="Icons/Edit.svg">
+                            </a>
+                        </button>
+                        <button onclick="deleterecipe()">
+                            <a href="">
+                                <img src="Icons/Delete.svg">
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="recipeimage">
+                    <img src="Recipe pics/1.jpg">
+                </div>
+                <div class="recipedetails">
+                    <div class="recipetype">
+                        <div class="recipefilters">
+                            <div class="filter">
+                                Italian
+                            </div>
+                            <div class="filter">
+                                Breakfast
+                            </div>
+                        </div>
+                        <div class="recipeveg">
+                            <img src="Icons/veg.png">
+                        </div>
+                    </div>
+                    <div class="recipeheading">
+                        <h3>
+                            Salad
+                        </h3>
+                        <p>
+                            Recipe about
+                            Lorem ipsum dolor sit amet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

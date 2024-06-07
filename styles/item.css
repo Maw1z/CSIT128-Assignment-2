@@ -1,0 +1,95 @@
+main {
+    height: 77vh;
+    width: 85%;
+    margin-top: 135px;
+    border-radius: 50px;
+    margin-inline: auto;
+
+    display: flex;
+}
+    
+#itemdetails {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+    flex: 1;
+    }
+    
+#item {
+    border-left: 1px solid #D9D9D9;
+    flex: 3;
+}
+
+#itemdetails > div:first-child {
+    border-bottom: 1px solid #D9D9D9;
+}
+
+#ownerdetails {
+    padding: 0px 30px 20px 0px;
+}
+
+#ownerdetails > p, #ingredientlist > p, #instructions > p:first-child{
+    font-size: 20px;
+    font-weight: 800;
+    text-align: left;
+    margin: 5px;
+}
+
+#ingredientlist, #instructions {
+    margin-top: 30px;
+}
+    
+#ingredientscontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredientitem {
+    padding: 15px 10px 15px 30px;
+    border-bottom: 1px solid #D9D9D9;
+    font-weight: 800;
+}
+
+#instructiontext {
+    padding-left: 15px;
+}
+
+#item {
+    padding: 50px;
+    padding-top: 0px;
+}
+
+#itemname > h1 {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+#itemprep {
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 30px;
+}
+
+#preptime, #servingsize, #ingredients {
+    flex: 2;
+    padding: 0px 30px 0px 30px;
+}
+
+#preptime > p, #servingsize > p, #ingredients > p {
+    font-size: 20px;
+}
+
+#preptime, #servingsize {
+    border-right: 1px solid #D9D9D9;
+}
+
+#itemabout > img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+#itemabout > p {
+    font-size: 22px;
+}

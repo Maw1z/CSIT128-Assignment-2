@@ -1,0 +1,20 @@
+:root {
+    --primarycolor: #000000;
+    --secondarycolor: #F8F3EC;
+    --accentcolor: #D9BF91;
+    --accentcolor2: #43513A
+}
+
+p, a {
+    font-family: "Josefin Sans", sans-serif;
+    color: var(--primarycolor);
+}
+
+body {
+    background-color: var(--secondarycolor);
+}
+
+
+button:hover {
+    cursor: pointer;
+}
