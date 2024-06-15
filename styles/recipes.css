@@ -60,6 +60,10 @@ main {
     gap: 50px;
 }
 
+#grid > a {
+    text-decoration: none;
+}
+
 .recipecard {
     display: flex;
     flex-direction: column;

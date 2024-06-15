@@ -59,59 +59,78 @@
             <h1>
                 Share your recipe!
             </h1>
-            <!-- Assign actions to form after javascript part will be finished -->
-            <form action="">
-                <!-- After each label put a <br> element -->
-                <!-- Make input elements required -->
+            <form action="create_action" method="post">
                 <div class="recipecat">
-                    <!-- Create label saying "Attach Image" -->
-                    <input type="file" name="" id="fileinput">
+                    <label for="attach_image">
+                        Attach Image
+                    </label>
+                    <br>
+                    <input type="file" id="fileinput" accept="image/*" required>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Dish Type" -->
-                    <!-- Create input of type text with placeholder "Breakfast" -->
+                    <label for="dish_type">
+                        Dish Type
+                    </label>
+                    <br>
+                    <input type="text" id="dish_type" placeholder="Breakfast" required>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Cuisine" -->
-                    <!-- Create input of type text with placeholder "Italian" -->
+                    <label for="cuisine">
+                        Cuisine
+                    </label>
+                    <br>
+                    <input type="text" id="cuisine" placeholder="Italian" required>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Meal Type" -->
-                    <!-- Create two radio button inputs saying "Veg" and "Non Veg", assign values and names and make it so only one can be selected at a given time -->
+                    <label for="name">
+                        Recipe name
+                    </label>
+                    <br>
+                    <input type="text" id="rec_name" placeholder="Cornetto Brioche" required>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Recipe name" -->
-                    <!-- Create input of type text with placeholder "Cornetto Brioche" -->
+                    <label for="about">
+                        Recipe about
+                    </label>
+                    <br>
+                    <input type="text" id="rec_about" placeholder="Italian flaky pastry with sweet filling." required>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Recipe about" -->
-                    <!-- Create input of type text with placeholder "Italian flaky pastry with sweet filling." -->
+                    <label for="time">
+                        Prep time
+                    </label>
+                    <br>
+                    <input type="text" id="rec_time" placeholder="2 hours" required>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Prep time" -->
-                    <!-- Create input of type text with placeholder "2 hours" -->
+                    <label for="size">
+                        Serving Size
+                    </label>
+                    <br>
+                    <input type="text" id="rec_size" placeholder="8-12 servings" required>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Serving Size" -->
-                    <!-- Create input of type text with placeholder "8-12 servings" -->
-                </div>
-                <div class="recipecat">
-                    <!-- Create label saying "Recipe description" -->
-                    <!-- Create textarea with 5 rows and 59 cols -->
-                    <!-- Keep the text inside the textarea elements -->
-                    <!-- 
+                    <label for="description">
+                        Recipe description
+                    </label>
+                    <br>
+                    <textarea id="rec_desc" cols="85" rows="5" required>
 A traditional Italian breakfast pastry that combines the flakiness of a croissant with the richness of brioche dough. This delectable treat is often filled with a variety of fillings such as custard, chocolate, or jam. Served warm, it has a golden, buttery exterior with a soft, airy interior. Perfect for enjoying with a cappuccino, it offers a delightful start to the day with its balance of sweetness and texture, making it a beloved morning indulgence in Italy. 
-                     -->
+                    </textarea>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Ingredients" -->
-                    <!-- Create input of type text with placeholder "Butter, Flour, Sugar, Yeast, Eggs" -->
+                    <label for="ingredients">
+                        Ingredients
+                    </label>
+                    <br>
+                    <input type="text" id="rec_ingred" placeholder="Butter, Flour, Sugar, Yeast, Eggs" required>
                 </div>
                 <div class="recipecat">
-                    <!-- Create label saying "Recipe instructions" -->
-                    <!-- Create textarea with 5 rows and 59 cols -->
-                    <!-- Keep the text inside the textarea elements -->
-                    <!-- 
+                    <label for="instructions">
+                        Recipe instructions
+                    </label>
+                    <br>
+                    <textarea id="rec_instruc" cols="85" rows="5" required>
 1. Preheat oven to 375°F (190°C).
 2. Prepare brioche dough: Mix flour, sugar, yeast, and salt.
 3. Add softened butter, eggs, and milk. Knead until smooth.
@@ -120,13 +139,14 @@ A traditional Italian breakfast pastry that combines the flakiness of a croissan
 6. Fill with desired filling.
 7. Roll each triangle into a crescent shape.
 8. Bake for 15-20 minutes until golden brown. Enjoy warm.
--->
+                    </textarea>
                 </div>
                 <div id="submitbutton">
-                    <!-- Create button with type submit and text as Submit -->
+                    <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
+        <script src="Scripts/create.js"></script>
     </main>
 </body>
 </html>
