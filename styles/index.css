@@ -1,40 +1,76 @@
-html {
-    scroll-snap-type: y mandatory;
+/* Remove scrollbar modifs or not */
+#revcarousel::-webkit-scrollbar {
+    height: 1rem;
+}
+
+#revcarousel::-webkit-scrollbar-track {
+    border-radius: 100vw;
+}
+
+#revcarousel::-webkit-scrollbar-thumb {
+    border-radius: 100vw;
+    border: 2px solid var(--primarycolor);
+    background: #D9D9D9;
+    width: 20px;
 }
 
 main {
-    margin-top: 135px;
+    font-family: "Josefin Sans", sans-serif;
+    margin-top: 115px;
     height: 100vh;
     width: 85%;
-    border-radius: 50px;
     margin-inline: auto;
-    
-    font-family: "Merriweather", serif;
-    color: var(--accentcolor2);
 
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 120px;
-    scroll-snap-align: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid;
-    background-color: grey;
+    flex-direction: column;
+    gap: 100px;
 }
 
-#websitedetails {
-    position: relative;
-    padding: 100px;
-    z-index: 2;
+
+#hero {
+    background-image: url(https://picsum.photos/id/100/1500/700);
+    background-size: cover;
+    background-position: center; 
+    padding: 200px 0px 200px 0px;
+    border-radius: 70px;
+    height: 90vh;
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#herodetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#herotitle > h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+#herosubtitle > p {
+    text-align: center;
+    margin: 0;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 350;
+    margin-bottom: 10px;
 }
 
 button {
-    font-family: "Merriweather", serif;
-    font-size: 28px;
-    background-color: var(--accentcolor2);
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 24px;
+    background-color: var(--primarycolor);
     color: #FFFFFF;
-    padding: 15px 70px;
+    padding: 20px 60px;
     border-radius: 40px;
     display: block;
     margin: auto;
@@ -42,78 +78,110 @@ button {
     border: none;
 }
 
-#heropage_img > img {
-    position: absolute;
-    object-fit: fill;
-    width: 100%;
-    z-index: 1;
+#cta a {
+    text-decoration: none;
+    color: white;
 }
 
-
-#heropage_heading {
-    font-size: 64px;
-    text-align: center;
-    font-weight: 700;
-}
-
-#cta {
-    margin-top: 15px;
-    font-size: 40px;
-    font-weight: 400;
-    text-align: center;
-}
-
-/* Verified recipes start here */
-
-section {
-    height: 100vh;
-    width: 85%;
-    margin: auto;
-    /* margin-inline: auto; */
-    scroll-snap-align: center;
+#verified, #diverse {    
+    height: 90vh;
 }
 
 #verifiedcontainer, #diversecontainer {
-    margin-top: 50px;
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    gap: 50px;
+    gap: 100px;
 }
 
-#verified, #diverse {
-    width: 50%;
+#verifiedtext, #diversetext {
+    background-color: #D9D9D9;
+    height: 550px;
+    padding: 50px;
 }
 
-h1 {
-    font-family: "Josefin Sans", sans-serif;
+#verifiedtext > h1, #diversetext > h1 {
     font-size: 64px;
-    color: var(--primarycolor);
 }
 
-#verified, #diverse {
-    align-self: center;
-}
-
-#verified > p, #diverse > p {
+#verifiedtext > p, #diversetext > p {
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 350;
 }
 
-#verifiedpic, #diversepic {
-    background-color: grey;
-    /* width: 50%;
-    height: 60vh; */
-    /* align-self: center; */
-    width: 40%;
-    /* height: 70vh; */
-    height: 70vh;
+#userrev {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
 }
 
-#verifiedpic > img, #diversepic > img {
-    object-fit: contain;
-    width: 100%; 
-    height: 100%;
+#revheading {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+#revimg > img {
+    width: 100px;
+    margin-bottom: -30px;
+}
+
+#revtext > h1 {
+    text-align: center;
+    font-size: 64px;
+}
+
+#revcarousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 25%;
+    gap: 50px;
+    
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+    scroll-snap-type: inline mandatory;
+}
+
+.rev {
+    font-size: 18px;
+    background-color: #D9D9D9;
+    padding: 50px 50px 50px 50px;
+    height: 380px;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    scroll-snap-align: start;
+}
+
+.revabout img{
+    width: 30px;
+}
+
+.revabout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.verified {
+    display: flex;
+}
+
+.verified > p {
+    margin-left: 10px;
+}
+
+.revtext {
+    margin-top: 15px;
+}
+
+.revuser > p {
+    margin: 0;
+    font-size: 20px;
+}
