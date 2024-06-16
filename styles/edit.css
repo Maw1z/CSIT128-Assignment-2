@@ -6,18 +6,54 @@ main {
     color: var(--primarycolor);
 
     display: flex;
-    justify-content: center;
-    align-items: center;    
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center;     */
 }
 
 #formcontainer {
-    width: 35vw;
-    align-items: center;
+    padding-top: 50px;
+    display: flex;
+    justify-content:center;
+
+    width: 90%;
+    align-items: flex-start;
 }
 
-#formcontainer h1 {
+#oldrecipeprev {
+    padding: 0px 50px 0px 20px;
+    border-right: 1px solid;
+}
+
+#oldrecipeprev > h2 {
+    margin-bottom: 80px;
+}
+
+.recipeprevcat {
+    padding-bottom: 30px;
+}
+
+.recipeprevcat > p {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.recipeprevcat > span {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+}
+
+h1 {
     font-family: "Josefin Sans", sans-serif;
     font-size: 52px;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 32px;
     text-align: center;
 }
 
@@ -66,8 +102,8 @@ textarea {
 
 label {
     font-family: "Josefin Sans", sans-serif;
-    font-size: 24px; 
     font-weight: 700;
+    font-size: 24px; 
 }
     
 .recipecat {

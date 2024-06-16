@@ -50,89 +50,84 @@ function load_recipes_object(JSONText)
             `;
         }
     document.getElementById('grid').innerHTML = RecipeCardHTML;
-    console.log('test');
 }
 
 getRecipesAJAX();
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const recipes = [
-//         {
-//             image: '1.jpg',
-//             cuisine: 'Italian',
-//             dishType: 'Breakfast',
-//             isVegetarian: true,
-//             title: 'Salad',
-//             description: 'A fresh and healthy Italian salad perfect for breakfast.',
-//         },
-//         {
-//             image: '2.jpg',
-//             cuisine: 'Japanese',
-//             dishType: 'Lunch',
-//             isVegetarian: false,
-//             title: 'Sushi',
-//             description: 'Delicious and authentic Japanese sushi rolls.',
-//         },
-//         // Add more recipes here
-//     ];
+function filter_grid(returnQueryResult)
+{
+    let FilterRecipeCardHTML = '';
+    for (let index = 0; index < returnQueryResult.length; index++)
+        {
+            let JSONObj = JSONText[index];
+            FilterRecipeCardHTML += `
+                        <a href="RecipesHTML/${returnQueryResult.name}.html">
+                            <div class="recipecard">
+                                <div class="recipeimage">
+                                    <img src="${returnQueryResult.about.image_src}">
+                                </div>
+                                <div class="recipedetails">
+                                    <div class="recipetype">
+                                        <div class="recipefilters">
+                                            <div class="filter">
+                                                ${returnQueryResult.cuisine}
+                                            </div>
+                                            <div class="filter">
+                                                ${returnQueryResult.dish_type}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="recipeheading">
+                                        <h3>
+                                            ${returnQueryResult.name}
+                                        </h3>
+                                        <p>
+                                            ${returnQueryResult.about.short_description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+            `;
+        }
+    document.getElementById('grid').innerHTML = FilterRecipeCardHTML;
+}
 
-//     const gridContainer = document.getElementById('grid');
+// Each display function will fetch result from database and then pass the result to filter_grid()
 
-//     recipes.forEach(recipe => {
-//         const recipeCard = document.createElement('div');
-//         recipeCard.className = 'recipecard';
 
-//         const recipeImage = document.createElement('div');
-//         recipeImage.className = 'recipeimage';
-//         const img = document.createElement('img');
-//         img.src = recipe.image;
-//         recipeImage.appendChild(img);
+// select * from recipes
+document.getElementById('allrecipes').addEventListener("click", getRecipesAJAX());
 
-//         const recipeDetails = document.createElement('div');
-//         recipeDetails.className = 'recipedetails';
+// select dishtype = "breakfast" from recipes;
+document.getElementById('breakfast').addEventListener("click", display_breakfast());
 
-//         const recipeType = document.createElement('div');
-//         recipeType.className = 'recipetype';
+// select dishtype = "lunch" from recipes;
+document.getElementById('lunch').addEventListener("click", display_lunch());
 
-//         const recipeFilters = document.createElement('div');
-//         recipeFilters.className = 'recipefilters';
-        
-//         const filterCuisine = document.createElement('div');
-//         filterCuisine.className = 'filter';
-//         filterCuisine.textContent = recipe.cuisine;
-//         recipeFilters.appendChild(filterCuisine);
+// select dishtype = "dinner" from recipes;
+document.getElementById('dinner').addEventListener("click", display_dinner());
 
-//         const filterDishType = document.createElement('div');
-//         filterDishType.className = 'filter';
-//         filterDishType.textContent = recipe.dishType;
-//         recipeFilters.appendChild(filterDishType);
+// select dishtype = "snacks" from recipes;
+document.getElementById('snacks').addEventListener("click", display_snacks());
 
-//         recipeType.appendChild(recipeFilters);
+// select dishtype = "sweets" from recipes;
+document.getElementById('sweets').addEventListener("click", display_sweets());
 
-//         const recipeVeg = document.createElement('div');
-//         recipeVeg.className = 'recipeveg';
-//         const vegImg = document.createElement('img');
-//         vegImg.src = recipe.isVegetarian ? 'veg.png' : 'non-veg.png';
-//         recipeVeg.appendChild(vegImg);
-//         recipeType.appendChild(recipeVeg);
+// select dishtype = "drinks" from recipes;
+document.getElementById('drinks').addEventListener("click", display_drinks());
 
-//         recipeDetails.appendChild(recipeType);
+// select cuisine = "italian" from recipes;
+document.getElementById('italian').addEventListener("click", display_italian());
 
-//         const recipeHeading = document.createElement('div');
-//         recipeHeading.className = 'recipeheading';
-//         const h3 = document.createElement('h3');
-//         h3.textContent = recipe.title;
-//         const p = document.createElement('p');
-//         p.textContent = recipe.description;
+// select cuisine = "japanese" from recipes;
+document.getElementById('japanese').addEventListener("click", display_japanese());
 
-//         recipeHeading.appendChild(h3);
-//         recipeHeading.appendChild(p);
+// select cuisine = "mexican" from recipes;
+document.getElementById('mexican').addEventListener("click", display_mexican());
 
-//         recipeDetails.appendChild(recipeHeading);
+// select cuisine = "indian" from recipes;
+document.getElementById('indian').addEventListener("click", display_indian());
 
-//         recipeCard.appendChild(recipeImage);
-//         recipeCard.appendChild(recipeDetails);
-
-//         gridContainer.appendChild(recipeCard);
-//     });
-// });
+// select cuisine = "thai" from recipes;
+document.getElementById('thai').addEventListener("click", display_thai());

@@ -1,4 +1,3 @@
-/* Remove scrollbar modifs or not */
 #revcarousel::-webkit-scrollbar {
     height: 1rem;
 }
@@ -28,7 +27,7 @@ main {
 
 
 #hero {
-    background-image: url(https://picsum.photos/id/100/1500/700);
+    background-image: url(../Images/heroimg.jpg);
     background-size: cover;
     background-position: center; 
     padding: 200px 0px 200px 0px;
