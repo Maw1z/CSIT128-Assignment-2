@@ -116,6 +116,51 @@ exports.authenticateUser = function(res, body, mySess, myCallback) {
     });
 }
 
+// Creating new user entry
+exports.createUser = function(res, signupbody)
+{
+    var new_username = signupbody.username;
+    var new_password = signupbody.password;
+
+    con = this.connectToDB();
+
+    con.connect(function(err)
+    {
+        if (err) throw err;
+
+        var sql_query = `INSERT INTO users (username, password) values ("${new_username}", "${new_password}");`;
+
+        con.query(sql_query, function(err, result) 
+        {
+            if (err) 
+            {
+                // User already exists
+                if (err.code === 'ER_DUP_ENTRY') 
+                {
+                    console.log('Duplicate entry error: Username already exists.');
+                    var alertScript = `<script>alert("Your account already exists"); window.location.href = "/signup_redirect.html";</script>`;
+                    res.writeHead(200, { 'Content-Type': 'text/html' });
+                    res.write(alertScript);
+                } 
+            } else {
+                // User inserted successfully
+                console.log('User created:', new_username);
+                var alertScript = `<script>alert("Your account has been created, please login"); </script>`;
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.write(alertScript);
+                fs.readFile("../login.html", function (err, data) {
+                    if (err) {
+                        console.error('Error reading login.html:', err);
+                        return res.status(500).send('Error reading login.html');
+                    }
+                    res.write(data);
+                    return res.end();
+                });
+            }
+        });
+    });
+}
+
 exports.getUser = function(res, mySess, myCallback)
 {
     var sql_query = `SELECT * FROM users WHERE id = '${mySess.userId}';`;

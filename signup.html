@@ -36,26 +36,24 @@
                         </h2>
                     </div>
                     <div id="form">
-                        <form action="">
+                        <form action="signup" method="post">
                             <div id="email">
                                 <label for="signup-username">
                                     Enter your prefered username
                                 </label>
                                 <br>
-                                <input type="text" placeholder="Username" id="text_new_username" required>
+                                <input type="text" placeholder="Username" id="text_new_username" name="username" required>
                             </div>
                             <div id="Password">
                                 <label for="signup-password">
                                     Enter your password
                                 </label>
                                 <br>
-                                <input type="password" placeholder="Password" id="text_new_password" required>
+                                <input type="password" placeholder="Password" id="text_new_password" name="password" required>
                             </div>
                             <div id="submitbutton" style="border-bottom: none;">
                                 <button type="submit">
-                                    <a href="login.html" style="font-size: 20px;">
-                                        Sign up
-                                    </a>
+                                    Sign up
                                 </button>
                             </div>
                         </form>
