@@ -189,17 +189,34 @@ exports.navigateToHome = function(res)
 // Navigate user to all recipes page
 exports.navigateToRecipes = function(res)
 {
-
+    fs.readFile("../recipegrid.html", function (err, data)
+    {        
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(data);
+        return res.end();
+    });
 }
 
 // Navigate user to create page
 exports.navigateToCreate = function(res)
 {
-
+    // have to pass id so it can enter it to the recipe object
+    fs.readFile("../create.html", function (err, data)
+    {        
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(data);
+        return res.end();
+    });
 }
 
 // Navigate to user recipes
 exports.navigateToUserRecipes = function(res)
 {
-
+    // have to pass id or username and only display the user's recipes
+    fs.readFile("../userrecipes.html", function (err, data)
+    {        
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(data);
+        return res.end();
+    });
 }
