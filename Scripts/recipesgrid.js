@@ -23,7 +23,7 @@ function load_recipes_object(JSONText)
                         <a href="RecipesHTML/${JSONObj.name}.html">
                             <div class="recipecard">
                                 <div class="recipeimage">
-                                    <img src="${JSONObj.about.image_src}">
+                                    <img src="${JSONObj.image_src}">
                                 </div>
                                 <div class="recipedetails">
                                     <div class="recipetype">
@@ -41,7 +41,7 @@ function load_recipes_object(JSONText)
                                             ${JSONObj.name}
                                         </h3>
                                         <p>
-                                            ${JSONObj.about.short_description}
+                                            ${JSONObj.short_description}
                                         </p>
                                     </div>
                                 </div>

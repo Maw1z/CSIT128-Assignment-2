@@ -49,14 +49,13 @@ function update_action()
     const recipe_description_val = document.getElementById('rec_desc').value;
 
     // Recipe ingredients
-    let ingredients_text = document.getElementById('rec_ingred').value;
-    const ingredients_val = ingredients_text.split(', ');
+    const ingredients_val = document.getElementById('rec_ingred').value;
 
     // Recipe instructions
     const instructions_val = document.getElementById('rec_instruc').value;
     
     let recipeObj = {
-        name: old_name,
+        name: recipe_name_val,
         username: "foo",
         prep_time: prep_time_val,
         serving_size: serving_size_val,
@@ -64,11 +63,9 @@ function update_action()
         cuisine: cuisine_val, 
         ingredients: ingredients_val,
         instructions: instructions_val,
-        about: {
-            description: recipe_description_val,
-            image_src: filename,
-            short_description: recipe_about_val
-        }
+        description: recipe_description_val,
+        image_src: filename,
+        short_description: recipe_about_val
     }
 
     console.log(recipeObj);

@@ -33,8 +33,7 @@ function create_action()
     const recipe_description_val = document.getElementById('rec_desc').value;
 
     // Recipe ingredients
-    let ingredients_text = document.getElementById('rec_ingred').value;
-    const ingredients_val = ingredients_text.split(', ');
+    const ingredients_val = document.getElementById('rec_ingred').value;
 
     // Recipe instructions
     const instructions_val = document.getElementById('rec_instruc').value;
@@ -48,11 +47,9 @@ function create_action()
         cuisine: cuisine_val, 
         ingredients: ingredients_val,
         instructions: instructions_val,
-        about: {
-            description: recipe_description_val,
-            image_src: filename,
-            short_description: recipe_about_val
-        }
+        description: recipe_description_val,
+        image_src: filename,
+        short_description: recipe_about_val
     }
 
     console.log(recipeObj);
