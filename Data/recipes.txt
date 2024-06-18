@@ -65,17 +65,17 @@
     "short_description": "Stir-fried noodles with shrimp and tofu."
   },
   {
-    "name": "Pancakes",
+    "name": "Japanese Soufflé Pancakes",
     "username": "ChrisJohnson",
-    "prep_time": "20 minutes",
-    "serving_size": "8 pancakes",
+    "prep_time": "30 minutes",
+    "serving_size": "6 pancakes",
     "dish_type": "Breakfast",
-    "cuisine": "Any",
-    "ingredients": "All-purpose flour, Milk, Eggs, Butter, Sugar, Baking powder, Salt, Vanilla extract",
-    "instructions": "1. Whisk dry ingredients. 2. Mix wet ingredients separately. 3. Combine, stir until smooth. 4. Heat griddle, pour batter. 5. Cook until bubbles form, flip. 6. Serve hot with toppings.",
-    "description": "Classic breakfast pancakes made with a fluffy batter of flour, milk, eggs, and butter, cooked until golden brown and served hot with maple syrup or toppings of your choice.",
-    "image_src": "../Recipe pics/Pancakes.jpg",
-    "short_description": "Fluffy pancakes with syrup."
+    "cuisine": "Japanese",
+    "ingredients": "Cake flour, Milk, Eggs, Butter, Sugar, Baking powder, Salt, Vanilla extract, Cream of tartar",
+    "instructions": "1. Whisk dry ingredients. 2. Mix wet ingredients separately. 3. Beat egg whites with cream of tartar until stiff peaks form. 4. Gently fold egg whites into batter. 5. Heat griddle, use ring molds for batter. 6. Cook on low heat, covered, until fluffy and golden. 7. Serve hot with whipped cream or fruit.",
+    "description": "Light and fluffy Japanese soufflé pancakes, known for their tall, airy texture, served with whipped cream or fresh fruit.",
+    "image_src": "../Recipe pics/JapaneseSoufflePancakes.jpg",
+    "short_description": "Fluffy Japanese soufflé pancakes."
   },
   {
     "name": "Miso Soup",
@@ -110,23 +110,11 @@
     "serving_size": "4 servings",
     "dish_type": "Lunch",
     "cuisine": "Thai",
-    "ingredients": [
-      "Shrimp",
-      "Lemongrass",
-      "Galangal",
-      "Kaffir lime leaves",
-      "Fish sauce",
-      "Lime juice",
-      "Thai chili",
-      "Mushrooms",
-      "Tomato"
-    ],
+    "ingredients": "Shrimp, Lemongrass, Galangal, Kaffir lime leaves, Fish sauce, Lime juice, Thai chili, Mushrooms, Tomato",
     "instructions": "1. Bring lemongrass, galangal, and kaffir lime leaves to boil in water. 2. Add shrimp, mushrooms, tomato, and Thai chili. 3. Season with fish sauce and lime juice. 4. Simmer until shrimp is cooked. 5. Serve hot, garnished with cilantro.",
-    "about": {
-      "description": "Tom Yum Soup is a spicy and sour Thai soup made with shrimp, lemongrass, galangal, kaffir lime leaves, and mushrooms, flavored with fish sauce and lime juice.",
-      "image_src": "../Recipe pics/Tom-Yum-Soup.jpg",
-      "short_description": "Spicy Thai soup with shrimp and aromatic herbs."
-    }
+    "description": "Tom Yum Soup is a spicy and sour Thai soup made with shrimp, lemongrass, galangal, kaffir lime leaves, and mushrooms, flavored with fish sauce and lime juice.",
+    "image_src": "../Recipe pics/Tom-Yum-Soup.jpg",
+    "short_description": "Spicy Thai soup with shrimp and aromatic herbs."
   },
   {
     "name": "Enchiladas Verdes",

@@ -2,9 +2,6 @@ var mysql = require('mysql');
 var fs = require('fs');
 var con;
 
-// Step 
-// Authenticateuser -> connectToDb -> return con -> preAuthentication if user in database 
-
 // Connecting to database
 exports.connectToDB = function()
 {
@@ -65,15 +62,6 @@ exports.logout = function (res)
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(data);
         con.destroy();
-        return res.end();
-    });
-};
-
-// Navigates the user to the Home page.
-exports.navigateToHome = function (res) {
-    fs.readFile("../index.html", function (err, data) {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(data);
         return res.end();
     });
 };
@@ -180,6 +168,12 @@ exports.navigateToHome = function(res)
 {
     fs.readFile("../index.html", function (err, data)
     {        
+        if (err) {
+            console.error('Error reading userrecipes.html:', err);
+            res.writeHead(500, { 'Content-Type': 'text/html' });
+            res.write('Internal Server Error');
+            return res.end();
+        }
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(data);
         return res.end();
@@ -189,8 +183,14 @@ exports.navigateToHome = function(res)
 // Navigate user to all recipes page
 exports.navigateToRecipes = function(res)
 {
-    fs.readFile("../recipegrid.html", function (err, data)
+    fs.readFile("../recipesgrid.html", function (err, data)
     {        
+        if (err) {
+            console.error('Error reading userrecipes.html:', err);
+            res.writeHead(500, { 'Content-Type': 'text/html' });
+            res.write('Internal Server Error');
+            return res.end();
+        }
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(data);
         return res.end();
@@ -206,6 +206,51 @@ exports.navigateToCreate = function(res)
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(data);
         return res.end();
+    });
+}
+
+// Insert recipe into database
+exports.createRecipe = function(res, formData, s)
+{
+    // User details
+    var username = s.username;
+
+    // Recipe details
+    var name = formData.name;
+    var prep_time = formData.prep_time;
+    var serving_size = formData.serving_size;
+    var dish_type = formData.dish_type;
+    var cuisine = formData.cuisine;
+    var ingredients = formData.ingredients;
+    var instructions = formData.instructions;
+    var image_src = formData.image_src;
+    var short_description = formData.short_description;
+
+    con = this.connectToDB();
+
+    con.connect(function(err)
+    {
+        if (err) throw err;
+
+        var sql_query = `INSERT INTO recipes (name, username, prep_time, serving_size, dish_type, cuisine, ingredients, instructions, description, image_src, short_description) VALUES ("${name}", "${username}", "${prep_time}", "${serving_size}", "${dish_type}", "${cuisine}", "${ingredients}", "${instructions}", "${dish_type}", "${image_src}", "${short_description}")`
+        // Update json over here using fs
+        con.query(sql_query, function(err, result) 
+        {
+            if (err) 
+            {  
+                throw err;
+            } 
+            else
+            {
+                // Recipe inserted successfully
+                console.log('Recipe created:', name);
+                var alertScript = `<script>alert("Your recipe has been created");</script>`;
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.write(alertScript);
+                // Navigate to recipesgrid.html
+                return res.end();
+            }
+        });
     });
 }
 

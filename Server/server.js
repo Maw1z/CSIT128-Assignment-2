@@ -1,8 +1,9 @@
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
-var myModule = require('./module')
-var mySess = require('./session')
+var myModule = require('./module');
+var mySess = require('./session');
+var multer = require('multer');
 querystring = require('querystring');
 
 http.createServer(function(req, res)
@@ -10,6 +11,8 @@ http.createServer(function(req, res)
     var body = '';
     var s;
     var signupbody = '';
+    var createformbody1 = '';
+    var createformbody = {};
 
     // Handling login
     if (req.url == "/login") 
@@ -97,7 +100,7 @@ http.createServer(function(req, res)
         {
             if (s.username != "" && s.username !== undefined) 
             {
-                myModule.getUser(res, s, myModule.navigateToRecipes);                 
+                myModule.getUser(res, s, myModule.navigateToRecipes);
             }
         } 
         else 
@@ -113,7 +116,7 @@ http.createServer(function(req, res)
         {
             if (s.username != "" && s.username !== undefined) 
             {
-                myModule.getUser(res, s, myModule.navigateToCreate);                 
+                myModule.getUser(res, s, myModule.navigateToCreate);
             }
         } 
         else 
@@ -122,22 +125,64 @@ http.createServer(function(req, res)
             myModule.login(res);
         } 
     }
-    else if (req.url == "/userrecipes")
-        {        
+    else if (req.url == "/create_form") {
+        const storage = multer.diskStorage({
+            destination: function (req, file, cb) {
+                cb(null, '../Recipe pics'); // Destination folder for uploads
+            },
+            filename: function (req, file, cb) {
+                cb(null, file.originalname); // Use original filename for the uploaded file
+            }
+        });
+            
+        // Create an instance of multer upload middleware
+        const upload = multer({ storage: storage }).single('fileinput');
+
+        upload(req, res, function (err) {
+            // Check for multer errors
+            if (err instanceof multer.MulterError) {
+                console.log(err);
+                res.writeHead(500, { 'Content-Type': 'text/html' });
+                res.end("Error uploading file.");
+                return;
+            } else if (err) {
+                console.log(err);
+                res.writeHead(500, { 'Content-Type': 'text/html' });
+                res.end("Error uploading file.");
+                return;
+            }    
+
+            var name = req.body.name;
+            var prep_time = req.body.prep_time;
+            var serving_size = req.body.serving_size;
+            var dish_type = req.body.dish_type;
+            var cuisine = req.body.cuisine;
+            var ingredients = req.body.ingredients;
+            var instructions = req.body.instructions;
+            var short_description = req.body.short_description;
+
+            var image_src = req.name;
+            
             s = mySess.getMySession();
-            if (s !== undefined) 
+            myModule.createRecipe(res, { name, prep_time, serving_size, dish_type, cuisine, ingredients, instructions, image_src, short_description }, s);
+        });
+    }
+    else if (req.url == "/userrecipes")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
             {
-                if (s.username != "" && s.username !== undefined) 
-                {
-                    myModule.getUser(res, s, myModule.navigateToUserRecipes);                 
-                }
-            } 
-            else 
-            {
-                // Redirect to the login page.
-                myModule.login(res);
-            } 
-        }
+                myModule.getUser(res, s, myModule.navigateToUserRecipes);            
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
     else 
     {
         myModule.login(res);
