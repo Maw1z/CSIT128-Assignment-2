@@ -1,3 +1,5 @@
+getRecipesAJAX();
+
 function getRecipesAJAX()
 {
     var xhttp = new XMLHttpRequest();
@@ -52,8 +54,6 @@ function load_recipes_object(JSONText)
     document.getElementById('grid').innerHTML = RecipeCardHTML;
 }
 
-getRecipesAJAX();
-
 function filter_grid(returnQueryResult)
 {
     let FilterRecipeCardHTML = '';
@@ -97,37 +97,37 @@ function filter_grid(returnQueryResult)
 
 
 // select * from recipes
-document.getElementById('allrecipes').addEventListener("click", getRecipesAJAX());
+// document.getElementById('allrecipes').addEventListener("click", getRecipesAJAX());
 
-// select dishtype = "breakfast" from recipes;
-document.getElementById('breakfast').addEventListener("click", display_breakfast());
+// // select dishtype = "breakfast" from recipes;
+// document.getElementById('breakfast').addEventListener("click", display_breakfast());
 
-// select dishtype = "lunch" from recipes;
-document.getElementById('lunch').addEventListener("click", display_lunch());
+// // select dishtype = "lunch" from recipes;
+// document.getElementById('lunch').addEventListener("click", display_lunch());
 
-// select dishtype = "dinner" from recipes;
-document.getElementById('dinner').addEventListener("click", display_dinner());
+// // select dishtype = "dinner" from recipes;
+// document.getElementById('dinner').addEventListener("click", display_dinner());
 
-// select dishtype = "snacks" from recipes;
-document.getElementById('snacks').addEventListener("click", display_snacks());
+// // select dishtype = "snacks" from recipes;
+// document.getElementById('snacks').addEventListener("click", display_snacks());
 
-// select dishtype = "sweets" from recipes;
-document.getElementById('sweets').addEventListener("click", display_sweets());
+// // select dishtype = "sweets" from recipes;
+// document.getElementById('sweets').addEventListener("click", display_sweets());
 
-// select dishtype = "drinks" from recipes;
-document.getElementById('drinks').addEventListener("click", display_drinks());
+// // select dishtype = "drinks" from recipes;
+// document.getElementById('drinks').addEventListener("click", display_drinks());
 
-// select cuisine = "italian" from recipes;
-document.getElementById('italian').addEventListener("click", display_italian());
+// // select cuisine = "italian" from recipes;
+// document.getElementById('italian').addEventListener("click", display_italian());
 
-// select cuisine = "japanese" from recipes;
-document.getElementById('japanese').addEventListener("click", display_japanese());
+// // select cuisine = "japanese" from recipes;
+// document.getElementById('japanese').addEventListener("click", display_japanese());
 
-// select cuisine = "mexican" from recipes;
-document.getElementById('mexican').addEventListener("click", display_mexican());
+// // select cuisine = "mexican" from recipes;
+// document.getElementById('mexican').addEventListener("click", display_mexican());
 
-// select cuisine = "indian" from recipes;
-document.getElementById('indian').addEventListener("click", display_indian());
+// // select cuisine = "indian" from recipes;
+// document.getElementById('indian').addEventListener("click", display_indian());
 
-// select cuisine = "thai" from recipes;
-document.getElementById('thai').addEventListener("click", display_thai());
+// // select cuisine = "thai" from recipes;
+// document.getElementById('thai').addEventListener("click", display_thai());

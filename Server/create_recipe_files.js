@@ -161,6 +161,8 @@ function writeRecipeFiles(recipeObj) {
 });
 }
 
+// <img src="http://localhost:3333/?svg=${recipeObj.image_src}">
+
 function readData(filepath) {
     fs.readFile(filepath, 'utf-8', function(err, data) {
         if (err) throw err;

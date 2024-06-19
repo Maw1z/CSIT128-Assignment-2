@@ -6,6 +6,7 @@ var imageDir = '../Images/';
 var cssDir = '../styles/';
 var javaScriptDir = '../Scripts/';
 var svgDir = '../Header';
+var dataDir = '../Data/';
 
 //create http server listening on port 3333
 http.createServer(function (req, res) {
@@ -70,8 +71,18 @@ http.createServer(function (req, res) {
                 res.end(content);
             }
         });
+    } else if (query.ext === 'txt' && query.file === 'recipes') {
+        fs.readFile(dataDir + 'recipes.txt', function (err, content) {
+            if (err) {
+                console.log(err);
+                res.writeHead(500, { 'Content-type': 'text/plain' });
+                res.end("Internal Server Error");
+            } else {
+                res.writeHead(200, { 'Content-type': 'application/json' });
+                res.end(content);
+            }
+        });
     }
-
 }).listen(3333);
 console.log("Server running at http://localhost:3333/");
 

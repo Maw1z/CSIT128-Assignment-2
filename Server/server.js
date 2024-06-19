@@ -183,6 +183,7 @@ http.createServer(function(req, res)
             myModule.login(res);
         } 
     }
+    // Edit page
     else 
     {
         myModule.login(res);

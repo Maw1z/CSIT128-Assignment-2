@@ -183,16 +183,12 @@ exports.navigateToHome = function(res)
 // Navigate user to all recipes page
 exports.navigateToRecipes = function(res)
 {
-    // Displaying recipes grid
-    // Have to make it dynamic
+    // Reading and displaying HTML file
     fs.readFile("../recipesgrid.html", function (err, data)
     {        
-        if (err) {
-            console.error('Error reading userrecipes.html:', err);
-            res.writeHead(500, { 'Content-Type': 'text/html' });
-            res.write('Internal Server Error');
-            return res.end();
-        }
+        if (err) throw err;
+        
+        // javascript file of recipesgrid.html should run now since DOMContentLoaded
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(data);
         return res.end();
@@ -202,7 +198,6 @@ exports.navigateToRecipes = function(res)
 // Navigate user to create page
 exports.navigateToCreate = function(res)
 {
-    // have to pass id so it can enter it to the recipe object
     fs.readFile("../create.html", function (err, data)
     {        
         res.writeHead(200, { 'Content-Type': 'text/html' });
