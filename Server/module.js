@@ -158,7 +158,7 @@ exports.getUser = function(res, mySess, myCallback)
         if (err) throw err;
         if (result !== undefined && result.length > 0)
         {
-            myCallback(res, result);
+            myCallback(res, `result`);
         }
     });
 }
@@ -181,18 +181,197 @@ exports.navigateToHome = function(res)
 }
 
 // Navigate user to all recipes page
-exports.navigateToRecipes = function(res)
+exports.navigateToAllRecipes = function(res, sql_query)
 {
-    // Reading and displaying HTML file
-    fs.readFile("../recipesgrid.html", function (err, data)
-    {        
-        if (err) throw err;
-        
-        // javascript file of recipesgrid.html should run now since DOMContentLoaded
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(data);
-        return res.end();
-    });
+    con = exports.connectToDB();
+    var recipeCardHTML = '';
+
+    con.connect(function(err)
+    {
+        var sql_query = "SELECT * FROM recipes";
+        con.query(sql_query, function(err, results) {
+            if (err) throw err;
+
+            var recipes = results.map(function(row) {
+                return {
+                    "name": row.name,
+                    "username": row.username,
+                    "prep_time": row.prep_time,
+                    "serving_size": row.serving_size,
+                    "dish_type": row.dish_type,
+                    "cuisine": row.cuisine,
+                    "ingredients": row.ingredients,
+                    "instructions": row.instructions,
+                    "description": row.description,
+                    "image_src": row.image_src,
+                    "short_description": row.short_description
+                };
+            });
+
+            recipes.forEach(function(recipe) {
+                recipeCardHTML += `
+                <a href="RecipesHTML/${recipe.name}.html">
+                    <div class="recipecard">
+                        <div class="recipeimage">
+                            <img src="http://localhost:3333/?jpg=/${recipe.image_src}">
+                        </div>
+                        <div class="recipedetails">
+                            <div class="recipetype">
+                                <div class="recipefilters">
+                                    <div class="filter">
+                                        ${recipe.cuisine}
+                                    </div>
+                                    <div class="filter">
+                                        ${recipe.dish_type}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recipeheading">
+                                <h3>
+                                    ${recipe.name}
+                                </h3>
+                                <p>
+                                    ${recipe.short_description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>`;
+            });
+
+            // Reading and displaying HTML file
+            fs.readFile("../recipesgrid.html", function (err, data)
+            {        
+                if (err) throw err;
+                
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                
+                res.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- Importing Instrument Serif amd Josefin sans font -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <!-- Linking favicon -->
+            <link rel="icon" type="image/x-icon" href="http://localhost:3333/?svg=\recipes-svgrepo-com.svg">
+            <!-- Linking CSS styles files -->
+            <link rel="stylesheet" href="http://localhost:3333/?css=styles.css">    <!--Main styles sheet-->
+            <link rel="stylesheet" href="http://localhost:3333/?css=header.css">
+            <link rel="stylesheet" href="http://localhost:3333/?css=recipes.css">
+            <title>All Recipes</title>
+        </head>
+        <body>
+            <header>
+                <div id="header_leftside">
+                    <div class="companyname firstline">
+                        128
+                        <img src="http://localhost:3333/?svg=\recipes-svgrepo-com.svg" alt="128 Recipes logo icon">
+                    </div>
+                    <div class="companyname">
+                        Recipes
+                    </div>
+                </div>
+                <div id="header_rightside">
+                    <div class="headerdivs">
+                        <a class="headerlinks" href="home">
+                            Home
+                        </a>
+                    </div>
+                    <div class="headerdivs">
+                        <a class="headerlinks" href="recipes">
+                            All Recipes
+                        </a>
+                    </div>
+                    <div class="headerdivs">
+                        <a class="headerlinks" href="create">
+                            Create
+                        </a>
+                    </div>
+                    <div class="headerdivs">
+                        <a class="headerlinks" href="userrecipes">
+                            My Recipes
+                        </a>
+                    </div>
+                    <div id="userbutton">
+                        <a href="logout">
+                            <img src="http://localhost:3333/?svg=\MaterialSymbolsPersonOutline.svg" alt="user icon" id="usericon">
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div id="griddetails">
+                    <h1>
+                        Discover culinary inspiration, key to your next meal.
+                    </h1>
+                    <p>
+                        Explore our dynamic recipe-sharing platform, featuring diverse culinary creations from classic favorites to innovative dishes, perfect for every palate.
+                    </p>
+                </div>
+                <div id="gridcontainer">
+                    <div id="category">
+                        <div id="dishtype">
+                            <p>
+                                <b>Dish Type</b>
+                            </p>
+                            <button class="dishbutton" id="allrecipes" onclick="window.location.href='/recipes'">
+                                All recipes
+                            </button>
+                            <button class="dishbutton" id="breakfast" onclick="window.location.href='/breakfast'">
+                                Breakfast
+                            </button>
+                            <button class="dishbutton" id="lunch" onclick="window.location.href='/lunch'">
+                                Lunch
+                            </button>
+                            <button class="dishbutton" id="dinner" onclick="window.location.href='/dinner'">
+                                Dinner
+                            </button>
+                            <button class="dishbutton" id="snacks" onclick="window.location.href='/snacks'">
+                                Snacks
+                            </button>
+                            <button class="dishbutton" id="sweets" onclick="window.location.href='/sweets'">
+                                Sweets
+                            </button>
+                            <button class="dishbutton" id="drinks" onclick="window.location.href='/drinks'">
+                                Drinks
+                            </button>
+                        </div>
+                        <div id="cuisine">
+                            <p>
+                                <b>Cuisine</b>
+                            </p>
+                            <button class="cuisinebutton" id="italian" onclick="window.location.href='/italian'">
+                                Italian
+                            </button>
+                            <button class="cuisinebutton" id="japanese" onclick="window.location.href='/japanese'">
+                                Japanese
+                            </button>
+                            <button class="cuisinebutton" id="mexican" onclick="window.location.href='/mexican'">
+                                Mexican
+                            </button>
+                            <button class="cuisinebutton" id="indian" onclick="window.location.href='/indian'">
+                                Indian
+                            </button>
+                            <button class="cuisinebutton" id="thai" onclick="window.location.href='/thai'">
+                                Thai
+                            </button>
+                        </div>
+                    </div>
+                    <div id="grid">
+                        ${recipeCardHTML}
+                    </div>
+                </div>
+            </main>
+        </body>
+        </html>`);
+                return res.end();
+            });
+        });
+    })
 }
 
 // Navigate user to create page

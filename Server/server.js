@@ -100,7 +100,7 @@ http.createServer(function(req, res)
         {
             if (s.username != "" && s.username !== undefined) 
             {
-                myModule.getUser(res, s, myModule.navigateToRecipes);
+                myModule.getUser(res, s, myModule.navigateToAllRecipes);
             }
         } 
         else 
@@ -109,6 +109,182 @@ http.createServer(function(req, res)
             myModule.login(res);
         } 
     }
+    else if (req.url == "/breakfast")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToBreakfastRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
+    else if (req.url == "/lunch")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToLunchRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
+    else if (req.url == "/dinner")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToDinnerRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
+    else if (req.url == "/snacks")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToSnacksRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
+    else if (req.url == "/sweets")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToSweetsRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
+    else if (req.url == "/drinks")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToDrinksRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
+    else if (req.url == "/italian")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToItalianRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }        
+    else if (req.url == "/japanese")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToJapaneseRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }   
+    else if (req.url == "/mexican")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToMexicanRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }   
+    else if (req.url == "/indian")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToIndianRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }   
+    else if (req.url == "/thai")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUser(res, s, myModule.navigateToThaiRecipes);
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }     
     else if (req.url == "/create")
     {        
         s = mySess.getMySession();

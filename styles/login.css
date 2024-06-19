@@ -48,8 +48,9 @@ section {
 
 #companyname > h1 {
     color: var(--primarycolor);
-    font-family: "Merriweather", serif;
+    font-family: "Josefin Sans", sans-serif;
     font-size: 40px;
+    font-weight: 400;
 }
 
 #formheading {

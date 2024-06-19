@@ -65,6 +65,19 @@
     "short_description": "Stir-fried noodles with shrimp and tofu."
   },
   {
+    "name": "Pancakes",
+    "username": "ChrisJohnson",
+    "prep_time": "20 minutes",
+    "serving_size": "8 pancakes",
+    "dish_type": "Breakfast",
+    "cuisine": "Any",
+    "ingredients": "All-purpose flour, Milk, Eggs, Butter, Sugar, Baking powder, Salt, Vanilla extract",
+    "instructions": "1. Whisk dry ingredients. 2. Mix wet ingredients separately. 3. Combine, stir until smooth. 4. Heat griddle, pour batter. 5. Cook until bubbles form, flip. 6. Serve hot with toppings.",
+    "description": "Classic breakfast pancakes made with a fluffy batter of flour, milk, eggs, and butter, cooked until golden brown and served hot with maple syrup or toppings of your choice.",
+    "image_src": "../Recipe pics/Pancakes.jpg",
+    "short_description": "Fluffy pancakes with syrup."
+  },
+  {
     "name": "Miso Soup",
     "username": "SarahChang",
     "prep_time": "15 minutes",
@@ -219,5 +232,18 @@
     "description": "Mango Sticky Rice is a classic Thai dessert made with sticky rice soaked in sweetened coconut milk, served with fresh mango slices and sprinkled with sesame seeds.",
     "image_src": "../Recipe pics/Mango-Sticky-Rice.jpg",
     "short_description": "Thai dessert with sticky rice and mango slices."
+  },
+  {
+    "name": "Pancakes",
+    "username": "John",
+    "prep_time": "2 hours",
+    "serving_size": "8-12 servings",
+    "dish_type": "Breakfast",
+    "cuisine": "Italian",
+    "ingredients": "Butter, flour, sugar ",
+    "instructions": "1. Preheat oven to 375°F (190°C).\r\n2. Prepare brioche dough: Mix flour, sugar, yeast, and salt.\r\n3. Add softened butter, eggs, and milk. Knead until smooth.\r\n4. Let dough rise until doubled in size.\r\n5. Roll out dough and cut into triangles.\r\n6. Fill with desired filling.\r\n7. Roll each triangle into a crescent shape.\r\n8. Bake for 15-20 minutes until golden brown. Enjoy warm.\r\n                    ",
+    "description": "undefined",
+    "image_src": "undefined",
+    "short_description": "Pancakes"
   }
 ]
