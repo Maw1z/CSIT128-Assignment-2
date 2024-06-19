@@ -21,4 +21,12 @@ con.connect(function(err)
         console.log("Recipes table created!");
     });
 
+    var sql_query2 = 'CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY,  username varchar(50) UNIQUE, password varchar(100));';
+
+    con.query(sql_query, function(err, result)
+    {
+        if (err) throw err;
+        console.log("Users table created!");
+    });    
+
 })
