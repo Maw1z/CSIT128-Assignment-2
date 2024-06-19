@@ -131,7 +131,7 @@ http.createServer(function(req, res)
                 cb(null, '../Recipe pics'); // Destination folder for uploads
             },
             filename: function (req, file, cb) {
-                cb(null, file.originalname); // Use original filename for the uploaded file
+                cb(null, file.originalname);
             }
         });
             

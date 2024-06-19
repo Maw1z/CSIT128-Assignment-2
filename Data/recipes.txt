@@ -10,7 +10,7 @@
     "instructions": "1. Cook spaghetti until al dente. 2. Sauté pancetta until crispy. 3. Whisk eggs, cheese, and pepper. 4. Drain pasta, mix with egg mixture. 5. Serve immediately.",
     "description": "Classic Italian pasta dish with spaghetti, crispy pancetta, creamy egg and cheese sauce, and a touch of black pepper. A simple yet satisfying dinner option.",
     "image_src": "../Recipe pics/Spaghetti-Carbonara.jpg",
-    "short_description": "Creamy spaghetti with pancetta and cheese."
+    "short_description": "Creamy spaghetti with pancetta and cheese"
   },
   {
     "name": "Sushi Rolls",
@@ -65,19 +65,6 @@
     "short_description": "Stir-fried noodles with shrimp and tofu."
   },
   {
-    "name": "Japanese Soufflé Pancakes",
-    "username": "ChrisJohnson",
-    "prep_time": "30 minutes",
-    "serving_size": "6 pancakes",
-    "dish_type": "Breakfast",
-    "cuisine": "Japanese",
-    "ingredients": "Cake flour, Milk, Eggs, Butter, Sugar, Baking powder, Salt, Vanilla extract, Cream of tartar",
-    "instructions": "1. Whisk dry ingredients. 2. Mix wet ingredients separately. 3. Beat egg whites with cream of tartar until stiff peaks form. 4. Gently fold egg whites into batter. 5. Heat griddle, use ring molds for batter. 6. Cook on low heat, covered, until fluffy and golden. 7. Serve hot with whipped cream or fruit.",
-    "description": "Light and fluffy Japanese soufflé pancakes, known for their tall, airy texture, served with whipped cream or fresh fruit.",
-    "image_src": "../Recipe pics/JapaneseSoufflePancakes.jpg",
-    "short_description": "Fluffy Japanese soufflé pancakes."
-  },
-  {
     "name": "Miso Soup",
     "username": "SarahChang",
     "prep_time": "15 minutes",
@@ -103,7 +90,7 @@
     "image_src": "../Recipe pics/Churros.jpg",
     "short_description": "Crispy fried dough with cinnamon sugar."
   },
-    {
+  {
     "name": "Tom Yum Soup",
     "username": "MichaelWong",
     "prep_time": "30 minutes",
@@ -157,80 +144,80 @@
   },
   {
     "name": "Margarita Cocktail",
-    "username": "CarlosLopez",
+    "username": "CocktailMaster",
     "prep_time": "5 minutes",
     "serving_size": "1 cocktail",
-    "dish_type": "Drinks",
+    "dish_type": "Drink",
     "cuisine": "Mexican",
-    "ingredients": "Tequila, Lime juice, Triple sec, Salt, Ice cubes",
-    "instructions": "1. Rub rim of glass with lime juice, dip in salt. 2. Shake tequila, lime juice, triple sec, and ice in a shaker. 3. Strain into glass. 4. Garnish with lime slice.",
-    "description": "Margarita is a classic Mexican cocktail made with tequila, lime juice, and triple sec, served in a salt-rimmed glass. Refreshing and tangy, perfect for any occasion.",
+    "ingredients": "Tequila, Lime juice, Triple sec, Salt, Ice",
+    "instructions": "1. Rim glass with salt. 2. Shake tequila, lime juice, triple sec with ice. 3. Strain into glass. 4. Garnish with lime wedge.",
+    "description": "A classic Mexican cocktail made with tequila, lime juice, and triple sec, served chilled in a salt-rimmed glass. Refreshing and tangy.",
     "image_src": "../Recipe pics/Margarita-Cocktail.jpg",
-    "short_description": "Classic Mexican cocktail with tequila and lime."
+    "short_description": "Tequila-based cocktail with lime juice."
   },
   {
     "name": "Caprese Salad",
-    "username": "GiuliaRossi",
+    "username": "GiuseppeRossi",
     "prep_time": "15 minutes",
-    "serving_size": "4 servings",
-    "dish_type": "Lunch",
+    "serving_size": "2 servings",
+    "dish_type": "Appetizer",
     "cuisine": "Italian",
-    "ingredients": "Fresh mozzarella, Tomatoes, Fresh basil leaves, Extra virgin olive oil, Balsamic vinegar, Salt, Black pepper",
-    "instructions": "1. Slice mozzarella and tomatoes. 2. Arrange on plate with basil leaves. 3. Drizzle with olive oil and balsamic vinegar. 4. Season with salt and black pepper. 5. Serve immediately.",
-    "description": "Caprese Salad is a simple Italian salad made with fresh mozzarella, tomatoes, and basil leaves, drizzled with olive oil and balsamic vinegar. It's a light and refreshing dish.",
+    "ingredients": "Tomatoes, Fresh mozzarella, Basil leaves, Olive oil, Balsamic glaze, Salt, Pepper",
+    "instructions": "1. Slice tomatoes and mozzarella. 2. Arrange on plate with basil leaves. 3. Drizzle with olive oil and balsamic glaze. 4. Season with salt and pepper. 5. Serve immediately.",
+    "description": "A simple Italian salad made with ripe tomatoes, fresh mozzarella, and basil leaves, drizzled with olive oil and balsamic glaze. Light and flavorful.",
     "image_src": "../Recipe pics/Caprese-Salad.jpg",
-    "short_description": "Italian salad with mozzarella, tomatoes, and basil."
+    "short_description": "Tomato and mozzarella salad with basil."
   },
   {
     "name": "Chicken Quesadillas",
-    "username": "CarlosGarcia",
+    "username": "CarlosHernandez",
     "prep_time": "30 minutes",
-    "serving_size": "4 servings",
-    "dish_type": "Dinner",
+    "serving_size": "4 quesadillas",
+    "dish_type": "Main Course",
     "cuisine": "Mexican",
-    "ingredients": "Chicken breast, Flour tortillas, Cheddar cheese, Bell peppers, Onion, Jalapeno, Cumin, Chili powder, Salt, Sour cream, Salsa",
-    "instructions": "1. Cook chicken with cumin, chili powder, and salt. 2. Sauté bell peppers, onion, and jalapeno. 3. Shred chicken, mix with sautéed vegetables. 4. Place mixture on half of tortilla, top with cheese. 5. Fold tortilla, cook until cheese melts. 6. Serve with sour cream and salsa.",
-    "description": "Chicken Quesadillas are Mexican tortilla sandwiches filled with seasoned chicken, melted cheese, and sautéed vegetables. They are crispy on the outside and gooey inside, served with sour cream and salsa.",
+    "ingredients": "Chicken breast, Flour tortillas, Cheese, Bell peppers, Onion, Jalapeno, Cumin, Paprika, Salt",
+    "instructions": "1. Cook chicken, shred. 2. Layer cheese, chicken, veggies on tortilla. 3. Fold over, cook until cheese melts. 4. Serve hot with salsa and sour cream.",
+    "description": "Mexican quesadillas filled with tender chicken, cheese, bell peppers, and onions, seasoned with cumin and paprika, grilled until crispy and served with salsa and sour cream.",
     "image_src": "../Recipe pics/Chicken-Quesadillas.jpg",
-    "short_description": "Mexican tortilla sandwiches with chicken and cheese."
+    "short_description": "Cheesy chicken-filled tortilla."
   },
   {
     "name": "Paneer Tikka",
-    "username": "AmitPatel",
+    "username": "AnanyaSrivastava",
     "prep_time": "45 minutes",
     "serving_size": "4 servings",
     "dish_type": "Appetizer",
     "cuisine": "Indian",
-    "ingredients": "Paneer (Indian cottage cheese), Yogurt, Ginger-garlic paste, Turmeric, Garam masala, Cumin powder, Coriander powder, Lemon juice, Bell peppers, Red onion, Skewers",
-    "instructions": "1. Marinate paneer cubes in yogurt, ginger-garlic paste, turmeric, garam masala, cumin powder, coriander powder, and lemon juice. 2. Thread paneer cubes, bell peppers, and onion onto skewers. 3. Grill until paneer is lightly charred. 4. Serve hot with mint chutney.",
-    "description": "Paneer Tikka is a popular Indian appetizer made with marinated paneer cubes and vegetables grilled to perfection. It's seasoned with aromatic spices and served with mint chutney.",
+    "ingredients": "Paneer, Yogurt, Bell peppers, Onion, Spices (cumin, coriander, turmeric), Lemon juice, Oil",
+    "instructions": "1. Marinate paneer, veggies in yogurt, spices, lemon juice, oil. 2. Skewer and grill until golden. 3. Serve hot with mint chutney.",
+    "description": "Paneer Tikka is a popular Indian appetizer of marinated paneer and vegetables skewered and grilled to perfection, served hot with mint chutney.",
     "image_src": "../Recipe pics/Paneer-Tikka.jpg",
-    "short_description": "Grilled Indian paneer cubes with aromatic spices."
+    "short_description": "Grilled paneer and vegetable skewers."
   },
   {
     "name": "Pad See Ew",
-    "username": "SaraMiller",
+    "username": "NatashaLee",
     "prep_time": "30 minutes",
-    "serving_size": "4 servings",
+    "serving_size": "2 servings",
     "dish_type": "Dinner",
     "cuisine": "Thai",
-    "ingredients": "Wide rice noodles, Chicken thighs, Broccoli, Soy sauce, Oyster sauce, Garlic, Egg, Vegetable oil, Sugar, White pepper",
-    "instructions": "1. Cook rice noodles until tender. 2. Stir-fry chicken and garlic in vegetable oil. 3. Add broccoli, soy sauce, oyster sauce, and sugar. 4. Push ingredients to side, scramble egg. 5. Toss noodles with sauce until coated. 6. Serve hot, garnished with white pepper.",
-    "description": "Pad See Ew is a Thai stir-fried noodle dish with wide rice noodles, chicken, and broccoli, flavored with soy sauce and oyster sauce. It's savory, sweet, and delicious.",
+    "ingredients": "Wide rice noodles, Chicken or beef, Broccoli, Egg, Garlic, Dark soy sauce, Oyster sauce, Sugar, Vegetable oil",
+    "instructions": "1. Stir-fry garlic in oil, add meat. 2. Add noodles, broccoli, sauces, sugar. 3. Push aside, scramble egg. 4. Toss everything until heated through. 5. Serve hot.",
+    "description": "Pad See Ew is a popular Thai stir-fried noodle dish with wide rice noodles, tender chicken or beef, broccoli, and egg, flavored with a sweet and savory soy-based sauce.",
     "image_src": "../Recipe pics/Pad-See-Ew.jpg",
-    "short_description": "Thai stir-fried noodles with chicken and broccoli."
+    "short_description": "Thai stir-fried noodles with meat and broccoli."
   },
   {
     "name": "Mango Sticky Rice",
-    "username": "NatashaKumar",
+    "username": "VikramSingh",
     "prep_time": "45 minutes",
     "serving_size": "4 servings",
     "dish_type": "Dessert",
     "cuisine": "Thai",
-    "ingredients": "Sticky rice, Coconut milk, Sugar, Ripe mango, Salt, Sesame seeds",
-    "instructions": "1. Soak sticky rice, steam until tender. 2. Heat coconut milk with sugar and salt until dissolved. 3. Pour half over cooked rice, let soak. 4. Peel and slice mango. 5. Serve rice with mango slices, drizzle remaining coconut milk. 6. Garnish with sesame seeds.",
-    "description": "Mango Sticky Rice is a popular Thai dessert made with glutinous rice, fresh mango slices, and sweetened coconut milk. It's creamy, fragrant, and sweet, perfect for a satisfying dessert.",
+    "ingredients": "Sticky rice, Mangoes, Coconut milk, Sugar, Salt, Sesame seeds",
+    "instructions": "1. Cook sticky rice. 2. Heat coconut milk, sugar, salt. 3. Pour over rice, let soak. 4. Serve with mango slices, sprinkle sesame seeds.",
+    "description": "Mango Sticky Rice is a classic Thai dessert made with sticky rice soaked in sweetened coconut milk, served with fresh mango slices and sprinkled with sesame seeds.",
     "image_src": "../Recipe pics/Mango-Sticky-Rice.jpg",
-    "short_description": "Thai dessert with sticky rice, mango, and coconut milk."
+    "short_description": "Thai dessert with sticky rice and mango slices."
   }
 ]

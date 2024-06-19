@@ -183,6 +183,8 @@ exports.navigateToHome = function(res)
 // Navigate user to all recipes page
 exports.navigateToRecipes = function(res)
 {
+    // Displaying recipes grid
+    // Have to make it dynamic
     fs.readFile("../recipesgrid.html", function (err, data)
     {        
         if (err) {
@@ -223,6 +225,7 @@ exports.createRecipe = function(res, formData, s)
     var cuisine = formData.cuisine;
     var ingredients = formData.ingredients;
     var instructions = formData.instructions;
+    var description = formData.description;
     var image_src = formData.image_src;
     var short_description = formData.short_description;
 
@@ -232,8 +235,8 @@ exports.createRecipe = function(res, formData, s)
     {
         if (err) throw err;
 
-        var sql_query = `INSERT INTO recipes (name, username, prep_time, serving_size, dish_type, cuisine, ingredients, instructions, description, image_src, short_description) VALUES ("${name}", "${username}", "${prep_time}", "${serving_size}", "${dish_type}", "${cuisine}", "${ingredients}", "${instructions}", "${dish_type}", "${image_src}", "${short_description}")`
-        // Update json over here using fs
+        var sql_query = `INSERT INTO recipes (name, username, prep_time, serving_size, dish_type, cuisine, ingredients, instructions, description, image_src, short_description) VALUES ("${name}", "${username}", "${prep_time}", "${serving_size}", "${dish_type}", "${cuisine}", "${ingredients}", "${instructions}", "${description}", "${image_src}", "${short_description}")`
+        
         con.query(sql_query, function(err, result) 
         {
             if (err) 
@@ -244,11 +247,42 @@ exports.createRecipe = function(res, formData, s)
             {
                 // Recipe inserted successfully
                 console.log('Recipe created:', name);
-                var alertScript = `<script>alert("Your recipe has been created");</script>`;
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.write(alertScript);
-                // Navigate to recipesgrid.html
-                return res.end();
+
+                // Updating JSON text file
+                // Fetch all recipes from the database
+                con.query("SELECT * FROM recipes", function(err, results) {
+                    if (err) throw err;
+    
+                    // Prepare the data to be written to the JSON file
+                    var recipes = results.map(function(row) {
+                        return {
+                            "name": row.name,
+                            "username": row.username,
+                            "prep_time": row.prep_time,
+                            "serving_size": row.serving_size,
+                            "dish_type": row.dish_type,
+                            "cuisine": row.cuisine,
+                            "ingredients": row.ingredients,
+                            "instructions": row.instructions,
+                            "description": row.description,
+                            "image_src": row.image_src,
+                            "short_description": row.short_description
+                        };
+                    });
+                    // Convert the array to a JSON string with pretty formatting
+                    let updatedData = JSON.stringify(recipes, null, 2);
+
+                    // Write the updated JSON string to the file
+                    fs.writeFile("../Data/recipes.txt", updatedData, 'utf8', function(writeErr)
+                    {
+                        if (err) throw err;
+                        console.log("Database is upto date");
+                    });
+
+                    var alertScript = `<script>alert("Your recipe has been created"); window.location.href = "/recipes";</script>`;
+                    res.writeHead(200, { 'Content-Type': 'text/html' });
+                    res.write(alertScript);
+                });
             }
         });
     });
