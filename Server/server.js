@@ -350,7 +350,7 @@ http.createServer(function(req, res)
         {
             if (s.username != "" && s.username !== undefined) 
             {
-                myModule.getUser(res, s, myModule.navigateToUserRecipes);            
+                myModule.getUserForUserRecipes(res, s, myModule.navigateToUserRecipes);            
             }
         } 
         else 
@@ -359,7 +359,38 @@ http.createServer(function(req, res)
             myModule.login(res);
         } 
     }
-    // Edit page
+    else if (req.url == "/edit")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUserForUserRecipes(res, s, myModule.navigateToEdit);            
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
+    else if (req.url == "/delete")
+    {        
+        s = mySess.getMySession();
+        if (s !== undefined) 
+        {
+            if (s.username != "" && s.username !== undefined) 
+            {
+                myModule.getUserForUserRecipes(res, s, myModule.deleteRecipe);            
+            }
+        } 
+        else 
+        {
+            // Redirect to the login page.
+            myModule.login(res);
+        } 
+    }
     else 
     {
         myModule.login(res);

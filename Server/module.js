@@ -163,6 +163,20 @@ exports.getUser = function(res, mySess, myCallback)
     });
 }
 
+exports.getUserForUserRecipes = function(res, mySess, myCallback)
+{
+    var sql_query = `SELECT * FROM users WHERE id = '${mySess.userId}';`;
+
+    con.query(sql_query, function(err, result)
+    {
+        if (err) throw err;
+        if (result !== undefined && result.length > 0)
+        {
+            myCallback(res, `result`, mySess);
+        }
+    });
+}
+
 // Navigate user to home page
 exports.navigateToHome = function(res)
 {
@@ -181,7 +195,7 @@ exports.navigateToHome = function(res)
 }
 
 // Navigate user to all recipes page
-exports.navigateToAllRecipes = function(res, sql_query)
+exports.navigateToAllRecipes = function(res)
 {
     con = exports.connectToDB();
     var recipeCardHTML = '';
@@ -463,11 +477,174 @@ exports.createRecipe = function(res, formData, s)
 }
 
 // Navigate to user recipes
-exports.navigateToUserRecipes = function(res)
+exports.navigateToUserRecipes = function(res, mySess)
+{   
+    var usernameToFind = mySess.username;
+
+    con = exports.connectToDB();
+    var recipeCardHTML = '';
+
+    con.connect(function(err)
+    {
+        var sql_query = "SELECT * FROM recipes WHERE username = " + "'" + usernameToFind + "';";
+        con.query(sql_query, function(err, results) {
+            if (err) throw err;
+
+            var recipes = results.map(function(row) {
+                return {
+                    "name": row.name,
+                    "username": row.username,
+                    "prep_time": row.prep_time,
+                    "serving_size": row.serving_size,
+                    "dish_type": row.dish_type,
+                    "cuisine": row.cuisine,
+                    "ingredients": row.ingredients,
+                    "instructions": row.instructions,
+                    "description": row.description,
+                    "image_src": row.image_src,
+                    "short_description": row.short_description
+                };
+            });
+
+            recipes.forEach(function(recipe) {
+                recipeCardHTML += `
+                <a href="RecipesHTML/${recipe.name}.html">
+                    <div class="recipecard">
+                        <div class="manage">
+                            <div class="managebuttonsdiv">
+                                <button>
+                                    <a href="edit">
+                                        <img src="http://localhost:3333/?svg=../Icons/Edit.svg">
+                                    </a>
+                                </button>
+                                <button onclick="delete">
+                                    <a href="">
+                                        <img src="http://localhost:3333/?svg=../Icons/Delete.svg">
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="recipeimage">
+                            <img src="http://localhost:3333/?jpg=/${recipe.image_src}">
+                        </div>
+                        <div class="recipedetails">
+                            <div class="recipetype">
+                                <div class="recipefilters">
+                                    <div class="filter">
+                                        ${recipe.cuisine}
+                                    </div>
+                                    <div class="filter">
+                                        ${recipe.dish_type}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recipeheading">
+                                <h3>
+                                    ${recipe.name}
+                                </h3>
+                                <p>
+                                    ${recipe.short_description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    </a>`;
+            });
+
+            // Reading and displaying HTML file
+            fs.readFile("../recipesgrid.html", function (err, data)
+            {        
+                if (err) throw err;
+                
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                
+                res.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- Importing Instrument Serif amd Josefin sans font -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <!-- Linking favicon -->
+            <link rel="icon" type="image/x-icon" href="http://localhost:3333/?svg=\recipes-svgrepo-com.svg">
+            <!-- Linking CSS styles files -->
+            <link rel="stylesheet" href="http://localhost:3333/?css=styles.css">    <!--Main styles sheet-->
+            <link rel="stylesheet" href="http://localhost:3333/?css=header.css">
+            <link rel="stylesheet" href="http://localhost:3333/?css=userrecipes.css">
+            <title>My Recipes</title>
+        </head>
+        <body>
+            <header>
+                <div id="header_leftside">
+                    <div class="companyname firstline">
+                        128
+                        <img src="http://localhost:3333/?svg=/recipes-svgrepo-com.svg" alt="128 Recipes logo icon">
+                    </div>
+                    <div class="companyname">
+                        Recipes
+                    </div>
+                </div>
+                <div id="header_rightside">
+                    <div class="headerdivs">
+                        <a class="headerlinks" href="home">
+                            Home
+                        </a>
+                    </div>
+                    <div class="headerdivs">
+                        <a class="headerlinks" href="recipes">
+                            All Recipes
+                        </a>
+                    </div>
+                    <div class="headerdivs">
+                        <a class="headerlinks" href="create">
+                            Create
+                        </a>
+                    </div>
+                    <div class="headerdivs">
+                        <a class="headerlinks" href="userrecipes">
+                            My Recipes
+                        </a>
+                    </div>
+                    <div id="userbutton">
+                        <a href="logout">
+                            <img src="http://localhost:3333/?svg=/MaterialSymbolsPersonOutline.svg" alt="user icon" id="usericon">
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div id="myrecipes">
+                    <h1>
+                        Manage your culinary creations with ease - 
+                        <br>
+                        update, delete, and organize all your personal recipes in one place.
+                    </h1>
+                </div>
+                <div id="cardcontainer">
+                    ${recipeCardHTML}
+                </div>
+            </main>
+        </body>
+        </html>`);
+                return res.end();
+            });
+        });
+    })
+}
+
+exports.navigateToEdit = function(res, mySess)
 {
-    // have to pass id or username and only display the user's recipes
-    fs.readFile("../userrecipes.html", function (err, data)
+    fs.readFile("../edit.html", function (err, data)
     {        
+        if (err) {
+            console.error('Error reading edit.html:', err);
+            res.writeHead(500, { 'Content-Type': 'text/html' });
+            res.write('Internal Server Error');
+            return res.end();
+        }
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(data);
         return res.end();
