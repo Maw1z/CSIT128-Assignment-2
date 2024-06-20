@@ -11,8 +11,9 @@ http.createServer(function(req, res)
     var body = '';
     var s;
     var signupbody = '';
-    var createformbody1 = '';
     var createformbody = {};
+    var editformbody = '';
+    var deleteformbody = '';
 
     // Handling login
     if (req.url == "/login") 
@@ -334,13 +335,14 @@ http.createServer(function(req, res)
             var dish_type = req.body.dish_type;
             var cuisine = req.body.cuisine;
             var ingredients = req.body.ingredients;
+            var description = req.body.description;
             var instructions = req.body.instructions;
             var short_description = req.body.short_description;
 
             var image_src = req.name;
             
             s = mySess.getMySession();
-            myModule.createRecipe(res, { name, prep_time, serving_size, dish_type, cuisine, ingredients, instructions, image_src, short_description }, s);
+            myModule.createRecipe(res, { name, prep_time, serving_size, dish_type, cuisine, ingredients, description, instructions, image_src, short_description }, s);
         });
     }
     else if (req.url == "/userrecipes")
@@ -366,14 +368,42 @@ http.createServer(function(req, res)
         {
             if (s.username != "" && s.username !== undefined) 
             {
-                myModule.getUserForUserRecipes(res, s, myModule.navigateToEdit);            
+                myModule.getUser(res, s, myModule.navigateToEdit);
             }
         } 
         else 
         {
+            console.log('1test1')
             // Redirect to the login page.
             myModule.login(res);
         } 
+    }
+    else if (req.url == "/edit_form") 
+    {
+        s = mySess.getMySession();
+
+        // read chunks of POST data
+        req.on('data', chunk => {
+            editformbody += chunk.toString();
+        });
+
+        // when complete POST data is received
+        req.on('end', () => {
+            // use parse() method
+            editformbody = querystring.parse(editformbody);
+
+            var name = editformbody.name;
+            var prep_time = editformbody.prep_time;
+            var serving_size = editformbody.serving_size;
+            var dish_type = editformbody.dish_type;
+            var cuisine = editformbody.cuisine;
+            var instructions = editformbody.instructions;
+            var description = editformbody.description;
+            var ingredients = editformbody.ingredients;
+            var short_description = editformbody.short_description;
+
+            myModule.editRecipe(res, {name, prep_time, serving_size, dish_type, cuisine, instructions, description, ingredients, short_description },s);  
+        });    
     }
     else if (req.url == "/delete")
     {        
@@ -382,7 +412,7 @@ http.createServer(function(req, res)
         {
             if (s.username != "" && s.username !== undefined) 
             {
-                myModule.getUserForUserRecipes(res, s, myModule.deleteRecipe);            
+                myModule.getUser(res, s, myModule.navigateToDelete);            
             }
         } 
         else 
@@ -390,6 +420,25 @@ http.createServer(function(req, res)
             // Redirect to the login page.
             myModule.login(res);
         } 
+    }
+    else if (req.url == "/delete_form") 
+    {
+        s = mySess.getMySession();
+
+        // read chunks of POST data
+        req.on('data', chunk => {
+            deleteformbody += chunk.toString();
+        });
+
+        // when complete POST data is received
+        req.on('end', () => {
+            // use parse() method
+            deleteformbody = querystring.parse(deleteformbody);
+
+            var name = deleteformbody.name;
+
+            myModule.deleteRecipe(res, {name},s);  
+        });    
     }
     else 
     {

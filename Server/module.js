@@ -163,16 +163,16 @@ exports.getUser = function(res, mySess, myCallback)
     });
 }
 
-exports.getUserForUserRecipes = function(res, mySess, myCallback)
+exports.getUserForUserRecipes = function(res, s, myCallback)
 {
-    var sql_query = `SELECT * FROM users WHERE id = '${mySess.userId}';`;
+    var sql_query = `SELECT * FROM users WHERE id = ${s.userId};`;
 
     con.query(sql_query, function(err, result)
     {
         if (err) throw err;
         if (result !== undefined && result.length > 0)
         {
-            myCallback(res, `result`, mySess);
+            myCallback(res, s.username);
         }
     });
 }
@@ -183,7 +183,7 @@ exports.navigateToHome = function(res)
     fs.readFile("../index.html", function (err, data)
     {        
         if (err) {
-            console.error('Error reading userrecipes.html:', err);
+            console.error('Error reading index.html:', err);
             res.writeHead(500, { 'Content-Type': 'text/html' });
             res.write('Internal Server Error');
             return res.end();
@@ -477,13 +477,13 @@ exports.createRecipe = function(res, formData, s)
 }
 
 // Navigate to user recipes
-exports.navigateToUserRecipes = function(res, mySess)
+exports.navigateToUserRecipes = function(res, username)
 {   
-    var usernameToFind = mySess.username;
+    var usernameToFind = s.username;
 
     con = exports.connectToDB();
+    
     var recipeCardHTML = '';
-
     con.connect(function(err)
     {
         var sql_query = "SELECT * FROM recipes WHERE username = " + "'" + usernameToFind + "';";
@@ -505,22 +505,16 @@ exports.navigateToUserRecipes = function(res, mySess)
                     "short_description": row.short_description
                 };
             });
-
             recipes.forEach(function(recipe) {
                 recipeCardHTML += `
-                <a href="RecipesHTML/${recipe.name}.html">
                     <div class="recipecard">
                         <div class="manage">
                             <div class="managebuttonsdiv">
-                                <button>
-                                    <a href="edit">
-                                        <img src="http://localhost:3333/?svg=../Icons/Edit.svg">
-                                    </a>
-                                </button>
-                                <button onclick="delete">
-                                    <a href="">
-                                        <img src="http://localhost:3333/?svg=../Icons/Delete.svg">
-                                    </a>
+                                <button onclick = "window.location.href='/edit';">
+                                    <img src="http://localhost:3333/?svg=../../Icons/Edit.svg">
+                                </button >
+                                <button onclick="window.location.href='/delete';">
+                                    <img src="http://localhost:3333/?svg=../../Icons/Delete.svg">
                                 </button>
                             </div>
                         </div>
@@ -547,12 +541,11 @@ exports.navigateToUserRecipes = function(res, mySess)
                                 </p>
                             </div>
                         </div>
-                    </div>
-                    </a>`;
+                    </div>`;
             });
 
             // Reading and displaying HTML file
-            fs.readFile("../recipesgrid.html", function (err, data)
+            fs.readFile("../userrecipes.html", function (err, data)
             {        
                 if (err) throw err;
                 
@@ -635,18 +628,168 @@ exports.navigateToUserRecipes = function(res, mySess)
     })
 }
 
-exports.navigateToEdit = function(res, mySess)
+// Navigate to edit page 
+exports.navigateToEdit = function(res)
 {
     fs.readFile("../edit.html", function (err, data)
     {        
-        if (err) {
-            console.error('Error reading edit.html:', err);
-            res.writeHead(500, { 'Content-Type': 'text/html' });
-            res.write('Internal Server Error');
-            return res.end();
-        }
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(data);
         return res.end();
+    });
+}
+
+// Edit form
+exports.editRecipe = function(res, formData, s)
+{
+    // User details
+    var username = s.username;
+
+    // Recipe details
+    var name = formData.name;
+    var prep_time = formData.prep_time;
+    var serving_size = formData.serving_size;
+    var dish_type = formData.dish_type;
+    var cuisine = formData.cuisine;
+    var ingredients = formData.ingredients;
+    var instructions = formData.instructions;
+    var description = formData.description;
+    var short_description = formData.short_description;
+
+    con = this.connectToDB();
+
+    con.connect(function(err)
+    {
+        if (err) throw err;
+
+        var sql_query = `UPDATE recipes SET prep_time = '${prep_time}', serving_size = '${serving_size}', dish_type = '${dish_type}', cuisine = '${cuisine}', ingredients = '${ingredients}', instructions = '${instructions}', description = '${description}', short_description = '${short_description}' WHERE name = '${name}' AND username = '${username}';`;
+        
+        con.query(sql_query, function(err, result) 
+        {
+            if (err) 
+            {  
+                throw err;
+            } 
+            else
+            {
+                // Recipe updated successfully
+                console.log('Recipe updated', name);
+
+                // Updating JSON text file
+                // Fetch all recipes from the database
+                con.query("SELECT * FROM recipes", function(err, results) {
+                    if (err) throw err;
+    
+                    // Prepare the data to be written to the JSON file
+                    var recipes = results.map(function(row) {
+                        return {
+                            "name": row.name,
+                            "username": row.username,
+                            "prep_time": row.prep_time,
+                            "serving_size": row.serving_size,
+                            "dish_type": row.dish_type,
+                            "cuisine": row.cuisine,
+                            "ingredients": row.ingredients,
+                            "instructions": row.instructions,
+                            "description": row.description,
+                            "image_src": row.image_src,
+                            "short_description": row.short_description
+                        };
+                    });
+                    // Convert the array to a JSON string with pretty formatting
+                    let updatedData = JSON.stringify(recipes, null, 2);
+
+                    // Write the updated JSON string to the file
+                    fs.writeFile("../Data/recipes.txt", updatedData, 'utf8', function(writeErr)
+                    {
+                        if (err) throw err;
+                        console.log("Database is upto date");
+                    });
+
+                    var alertScript = `<script>alert("Your recipe has been updated"); window.location.href = "/userrecipes";</script>`;
+                    res.writeHead(200, { 'Content-Type': 'text/html' });
+                    res.write(alertScript);
+                });
+            }
+        });
+    });
+}
+
+// Navigate to delete page 
+exports.navigateToDelete = function(res)
+{
+    fs.readFile("../delete.html", function (err, data)
+    {        
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(data);
+        return res.end();
+    });
+}
+
+// Delete form
+exports.deleteRecipe = function(res, formData, s)
+{
+    // User details
+    var username = s.username;
+
+    // Recipe details
+    var name = formData.name;
+
+    con = this.connectToDB();
+
+    con.connect(function(err)
+    {
+        if (err) throw err;
+
+        var sql_query = `DELETE FROM recipes WHERE name = '${name}' AND username = '${username}';`;
+        
+        con.query(sql_query, function(err, result) 
+        {
+            if (err) 
+            {  
+                throw err;
+            } 
+            else
+            {
+                // Recipe deleted successfully
+                console.log('Recipe deleted:', name);
+
+                // Updating JSON text file
+                // Fetch all recipes from the database
+                con.query("SELECT * FROM recipes", function(err, results) {
+                    if (err) throw err;
+    
+                    // Prepare the data to be written to the JSON file
+                    var recipes = results.map(function(row) {
+                        return {
+                            "name": row.name,
+                            "username": row.username,
+                            "prep_time": row.prep_time,
+                            "serving_size": row.serving_size,
+                            "dish_type": row.dish_type,
+                            "cuisine": row.cuisine,
+                            "ingredients": row.ingredients,
+                            "instructions": row.instructions,
+                            "description": row.description,
+                            "image_src": row.image_src,
+                            "short_description": row.short_description
+                        };
+                    });
+                    // Convert the array to a JSON string with pretty formatting
+                    let updatedData = JSON.stringify(recipes, null, 2);
+
+                    // Write the updated JSON string to the file
+                    fs.writeFile("../Data/recipes.txt", updatedData, 'utf8', function(writeErr)
+                    {
+                        if (err) throw err;
+                        console.log("Database is upto date");
+                    });
+
+                    var alertScript = `<script>alert("Your recipe has been deleted"); window.location.href = "/userrecipes";</script>`;
+                    res.writeHead(200, { 'Content-Type': 'text/html' });
+                    res.write(alertScript);
+                });
+            }
+        });
     });
 }

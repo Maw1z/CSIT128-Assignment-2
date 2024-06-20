@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importing Instrument Serif amd Josefin sans font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Linking favicon -->
+    <link rel="icon" type="image/x-icon" href="http://localhost:3333/?svg=\recipes-svgrepo-com.svg">
+    <!-- Linking CSS styles files -->
+    <link rel="stylesheet" href="http://localhost:3333/?css=styles.css">    <!--Main styles sheet-->
+    <link rel="stylesheet" href="http://localhost:3333/?css=header.css">
+    <link rel="stylesheet" href="http://localhost:3333/?css=edit.css">
+    <title>Edit recipe</title>
+</head>
+<body>
+    <header>
+        <div id="header_leftside">
+            <div class="companyname firstline">
+                128
+                <img src="http://localhost:3333/?svg=\recipes-svgrepo-com.svg" alt="128 Recipes logo icon">
+            </div>
+            <div class="companyname">
+                Recipes
+            </div>
+        </div>
+        <div id="header_rightside">
+            <div class="headerdivs">
+                <a class="headerlinks" href="home">
+                    Home
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="recipes">
+                    All Recipes
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="create">
+                    Create
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="userrecipes">
+                    My Recipes
+                </a>
+            </div>
+            <div id="userbutton">
+                <a href="logout">
+                    <img src="http://localhost:3333/?svg=\MaterialSymbolsPersonOutline.svg" alt="user icon" id="usericon">
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="formheading">
+            <h1>
+                Delete your recipe!
+            </h1>
+        </div>  
+        <div id="formcontainer">
+            <div id="deleteform">
+                <form action="delete_form" method="post">
+                    <div class="recipecat">
+                        <label for="name">
+                            Enter recipe name to delete
+                        </label>
+                        <br>
+                        <input type="text" id="name" name="name" placeholder="Cornetto brioche" required style="margin-left: -50px;">
+                    </div>
+                    <div id="submitbutton">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

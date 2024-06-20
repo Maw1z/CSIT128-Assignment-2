@@ -61,137 +61,57 @@
             </h1>
         </div>  
         <div id="formcontainer">
-            <div id="oldrecipeprev">
-                <h2>
-                    Old Recipe Details
-                </h2>
-                <div class="recipeprevcat">
-                    <p>
-                        Dish Type
-                    </p>
-                    <span id="dishtype_prev">
-                        Breakfast  
-                    </span>
-                </div>
-                <div class="recipeprevcat">
-                    <p>
-                        Cuisine
-                    </p>
-                    <span id="cuisine_prev">
-                        Italian
-                    </span>
-                </div>
-                <div class="recipeprevcat">
-                    <p>
-                        Recipe Name
-                    </p>
-                    <span id="name_prev">
-                        Cornetto Brioche
-                    </span>
-                </div>
-                <div class="recipeprevcat">
-                    <p>
-                        Recipe about
-                    </p>
-                    <span id="about_prev">
-                        Italian flaky pastry with sweet filling
-                    </span>
-                </div>
-                <div class="recipeprevcat">
-                    <p>
-                        Prep time
-                    </p>
-                    <span id="preptime_prev">
-                        2 hours
-                    </span>
-                </div>
-                <div class="recipeprevcat">
-                    <p>
-                        Serving size
-                    </p>
-                    <span id="size_prev">
-                        8 - 12 hours
-                    </span>
-                </div>
-                <div class="recipeprevcat">
-                    <p>
-                        Recipe description
-                    </p>
-                    <span id="description_prev">
-                        A traditional Italian breakfast pastry that combines the flakiness of a croissant with the richness of brioche dough. This delectable treat is often filled with a variety of fillings such as custard, chocolate, or jam. Served warm, it has a golden, buttery exterior with a soft, airy interior. Perfect for enjoying with a cappuccino, it offers a delightful start to the day with its balance of sweetness and texture, making it a beloved morning indulgence in Italy. 
-                    </span>
-                </div>
-                <div class="recipeprevcat">
-                    <p>
-                        Ingredients
-                    </p>
-                    <span id="ingredients_prev">
-                        Butter, Flour, Sugar, Yeast, Eggs 
-                    </span>
-                </div>
-                <div class="recipeprevcat">
-                    <p>
-                        Recipe instructions
-                    </p>
-                    <span id="instructions_prev">
-                        1. Preheat oven to 375°F (190°C).
-                        2. Prepare brioche dough: Mix flour, sugar, yeast, and salt.
-                        3. Add softened butter, eggs, and milk. Knead until smooth.
-                        4. Let dough rise until doubled in size.
-                        5. Roll out dough and cut into triangles.
-                        6. Fill with desired filling.
-                        7. Roll each triangle into a crescent shape.
-                        8. Bake for 15-20 minutes until golden brown. Enjoy warm.
-                    </span>
-                </div>
-            </div>
             <div id="updateform">
-                <h2>
-                    New Recipe Details
-                </h2>
-                <form action="update_action" method="post">
+                <form action="edit_form" method="post">
+                    <div class="recipecat">
+                        <label for="name">
+                            Enter recipe name to update
+                        </label>
+                        <br>
+                        <input type="text" id="name" name="name" placeholder="Cornetto brioche" required>
+                    </div>
                     <div class="recipecat">
                         <label for="dish_type">
                             Dish Type
                         </label>
                         <br>
-                        <input type="text" id="dish_type" placeholder="Breakfast" required>
+                        <input type="text" id="dish_type" name="dish_type" placeholder="Breakfast" required>
                     </div>
                     <div class="recipecat">
                         <label for="cuisine">
                             Cuisine
                         </label>
                         <br>
-                        <input type="text" id="cuisine" placeholder="Italian" required>
+                        <input type="text" id="cuisine" name="cuisine" placeholder="Italian" required>
                     </div>
                     <div class="recipecat">
                         <label for="about">
                             Recipe about
                         </label>
                         <br>
-                        <input type="text" id="rec_about" placeholder="Italian flaky pastry with sweet filling." required>
+                        <input type="text" id="rec_about" name="short_description" placeholder="Italian flaky pastry with sweet filling." required>
                     </div>
                     <div class="recipecat">
                         <label for="time">
                             Prep time
                         </label>
                         <br>
-                        <input type="text" id="rec_time" placeholder="2 hours" required>
+                        <input type="text" id="rec_time" name="prep_time" placeholder="2 hours" required>
                     </div>
                     <div class="recipecat">
                         <label for="size">
                             Serving Size
                         </label>
                         <br>
-                        <input type="text" id="rec_size" placeholder="8-12 servings" required>
+                        <input type="text" id="rec_size" name="serving_size" placeholder="8-12 servings" required>
                     </div>
                     <div class="recipecat">
                         <label for="description">
                             Recipe description
                         </label>
                         <br>
-                        <textarea id="rec_desc" cols="85" rows="5" required>
-    A traditional Italian breakfast pastry that combines the flakiness of a croissant with the richness of brioche dough. This delectable treat is often filled with a variety of fillings such as custard, chocolate, or jam. Served warm, it has a golden, buttery exterior with a soft, airy interior. Perfect for enjoying with a cappuccino, it offers a delightful start to the day with its balance of sweetness and texture, making it a beloved morning indulgence in Italy. 
+                        <textarea id="rec_desc" name="description" cols="85" rows="5" required>
+A traditional Italian breakfast pastry that combines the flakiness of a croissant with the richness of brioche dough. This delectable treat is often filled with a variety of fillings such as custard, chocolate, or jam. Served warm, it has a golden, buttery exterior with a soft, airy interior. Perfect for enjoying with a cappuccino, it offers a delightful start to the day with its balance of sweetness and texture, making it a beloved morning indulgence in Italy. 
                         </textarea>
                     </div>
                     <div class="recipecat">
@@ -199,22 +119,22 @@
                             Ingredients
                         </label>
                         <br>
-                        <input type="text" id="rec_ingred" placeholder="Butter, Flour, Sugar, Yeast, Eggs" required>
+                        <input type="text" id="rec_ingred" name="ingredients" placeholder="Butter, Flour, Sugar, Yeast, Eggs" required>
                     </div>
                     <div class="recipecat">
                         <label for="instructions">
                             Recipe instructions
                         </label>
                         <br>
-                        <textarea id="rec_instruc" cols="85" rows="5" required>
-    1. Preheat oven to 375°F (190°C).
-    2. Prepare brioche dough: Mix flour, sugar, yeast, and salt.
-    3. Add softened butter, eggs, and milk. Knead until smooth.
-    4. Let dough rise until doubled in size.
-    5. Roll out dough and cut into triangles.
-    6. Fill with desired filling.
-    7. Roll each triangle into a crescent shape.
-    8. Bake for 15-20 minutes until golden brown. Enjoy warm.
+                        <textarea id="rec_instruc" name="instructions" cols="85" rows="5" required>
+1. Preheat oven to 375°F (190°C).
+2. Prepare brioche dough: Mix flour, sugar, yeast, and salt.
+3. Add softened butter, eggs, and milk. Knead until smooth.
+4. Let dough rise until doubled in size.
+5. Roll out dough and cut into triangles.
+6. Fill with desired filling.
+7. Roll each triangle into a crescent shape.
+8. Bake for 15-20 minutes until golden brown. Enjoy warm.
                         </textarea>
                     </div>
                     <div id="submitbutton">
@@ -224,6 +144,5 @@
             </div>
         </div>
     </main>
-    <script src="Scripts/edit.js"></script>
 </body>
 </html>

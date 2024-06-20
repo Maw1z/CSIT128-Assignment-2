@@ -22,6 +22,10 @@ main {
     margin: auto;
 }
 
+#cardcontainer > a {
+    text-decoration: none;
+}
+
 .recipecard {
     display: flex;
     flex-direction: column;
