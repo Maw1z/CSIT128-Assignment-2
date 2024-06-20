@@ -68,49 +68,49 @@
                             Enter recipe name to update
                         </label>
                         <br>
-                        <input type="text" id="name" name="name" placeholder="Cornetto brioche" required>
+                        <input type="text" id="name" name="name" placeholder="Cornetto brioche" required pattern="^[a-zA-Z]+$" title="Must contain only letters">
                     </div>
                     <div class="recipecat">
                         <label for="dish_type">
                             Dish Type
                         </label>
                         <br>
-                        <input type="text" id="dish_type" name="dish_type" placeholder="Breakfast" required>
+                        <input type="text" id="dish_type" name="dish_type" placeholder="Breakfast" required pattern="^[a-zA-Z]+$" title="Must contain only letters">
                     </div>
                     <div class="recipecat">
                         <label for="cuisine">
                             Cuisine
                         </label>
                         <br>
-                        <input type="text" id="cuisine" name="cuisine" placeholder="Italian" required>
+                        <input type="text" id="cuisine" name="cuisine" placeholder="Italian" required pattern="^[a-zA-Z]+$" title="Must contain only letters">
                     </div>
                     <div class="recipecat">
                         <label for="about">
                             Recipe about
                         </label>
                         <br>
-                        <input type="text" id="rec_about" name="short_description" placeholder="Italian flaky pastry with sweet filling." required>
+                        <input type="text" id="rec_about" name="short_description" placeholder="Italian flaky pastry with sweet filling." required pattern="^[a-zA-Z,\-. ]+$" title="Must contain only letters and numbers">
                     </div>
                     <div class="recipecat">
                         <label for="time">
                             Prep time
                         </label>
                         <br>
-                        <input type="text" id="rec_time" name="prep_time" placeholder="2 hours" required>
+                        <input type="text" id="rec_time" name="prep_time" placeholder="2 hours" required pattern="^[a-zA-Z0-9,\-. ]+$" title="Must contain only letters and numbers">
                     </div>
                     <div class="recipecat">
                         <label for="size">
                             Serving Size
                         </label>
                         <br>
-                        <input type="text" id="rec_size" name="serving_size" placeholder="8-12 servings" required>
+                        <input type="text" id="rec_size" name="serving_size" placeholder="8-12 servings" required pattern="^[a-zA-Z0-9,\-. ]+$" title="Must contain only letters and numbers">
                     </div>
                     <div class="recipecat">
                         <label for="description">
                             Recipe description
                         </label>
                         <br>
-                        <textarea id="rec_desc" name="description" cols="85" rows="5" required>
+                        <textarea id="rec_desc" name="description" cols="85" rows="5" required pattern="^[a-zA-Z0-9,\-. ]+$" title="Must contain only letters and numbers">
 A traditional Italian breakfast pastry that combines the flakiness of a croissant with the richness of brioche dough. This delectable treat is often filled with a variety of fillings such as custard, chocolate, or jam. Served warm, it has a golden, buttery exterior with a soft, airy interior. Perfect for enjoying with a cappuccino, it offers a delightful start to the day with its balance of sweetness and texture, making it a beloved morning indulgence in Italy. 
                         </textarea>
                     </div>
@@ -119,14 +119,14 @@ A traditional Italian breakfast pastry that combines the flakiness of a croissan
                             Ingredients
                         </label>
                         <br>
-                        <input type="text" id="rec_ingred" name="ingredients" placeholder="Butter, Flour, Sugar, Yeast, Eggs" required>
+                        <input type="text" id="rec_ingred" name="ingredients" placeholder="Butter, Flour, Sugar, Yeast, Eggs" required pattern="^[a-zA-Z0-9,\-. ]+$" title="Must contain only letters and numbers">
                     </div>
                     <div class="recipecat">
                         <label for="instructions">
                             Recipe instructions
                         </label>
                         <br>
-                        <textarea id="rec_instruc" name="instructions" cols="85" rows="5" required>
+                        <textarea id="rec_instruc" name="instructions" cols="85" rows="5" required pattern="^[a-zA-Z0-9,\-. ]+$" title="Must contain only letters and numbers">
 1. Preheat oven to 375°F (190°C).
 2. Prepare brioche dough: Mix flour, sugar, yeast, and salt.
 3. Add softened butter, eggs, and milk. Knead until smooth.
