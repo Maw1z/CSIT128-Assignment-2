@@ -65,6 +65,19 @@
     "short_description": "Stir-fried noodles with shrimp and tofu."
   },
   {
+    "name": "Japanese Souffle Pancakes",
+    "username": "ChrisJohnson",
+    "prep_time": "45 minutes",
+    "serving_size": "4 pancakes",
+    "dish_type": "Breakfast",
+    "cuisine": "Japanese",
+    "ingredients": "Cake flour, Milk, Eggs, Sugar, Baking powder, Vanilla extract, Butter",
+    "instructions": "1. Separate egg whites and yolks. 2. Beat yolks with sugar until pale. 3. Mix in milk, vanilla, melted butter. 4. Sift in flour and baking powder, mix until smooth. 5. Whip egg whites until stiff peaks form. 6. Gently fold whites into batter. 7. Cook in rings on low heat, flipping carefully. 8. Serve hot, topped with syrup and fruits.",
+    "description": "Delicate Japanese pancakes known for their airy texture, made with fluffy batter and served with syrup and fruits.",
+    "image_src": "../Recipe pics/JapaneseSoufflePancakes.jpg",
+    "short_description": "Fluffy Japanese pancakes with syrup and fruits."
+  },
+  {
     "name": "Miso Soup",
     "username": "SarahChang",
     "prep_time": "15 minutes",
@@ -219,5 +232,31 @@
     "description": "Mango Sticky Rice is a classic Thai dessert made with sticky rice soaked in sweetened coconut milk, served with fresh mango slices and sprinkled with sesame seeds.",
     "image_src": "../Recipe pics/Mango-Sticky-Rice.jpg",
     "short_description": "Thai dessert with sticky rice and mango slices."
+  },
+  {
+    "name": "Green Curry Chicken",
+    "username": "AndrewJohnson",
+    "prep_time": "45 minutes",
+    "serving_size": "4 servings",
+    "dish_type": "Dinner",
+    "cuisine": "Thai",
+    "ingredients": "Chicken thighs, Green curry paste, Coconut milk, Bamboo shoots, Thai basil, Fish sauce, Sugar, Vegetable oil",
+    "instructions": "1. Heat oil, add green curry paste, cook until fragrant. 2. Add chicken, stir until browned. 3. Pour in coconut milk, simmer until chicken is cooked. 4. Add bamboo shoots, simmer briefly. 5. Season with fish sauce and sugar. 6. Stir in Thai basil. 7. Serve hot with rice.",
+    "description": "Green Curry Chicken is a classic Thai dish made with tender chicken simmered in a flavorful green curry sauce with coconut milk, bamboo shoots, and Thai basil. Best served over steamed rice.",
+    "image_src": "../Recipe pics/Green-Curry-Chicken.jpg",
+    "short_description": "Spicy Thai chicken curry with coconut milk and bamboo shoots."
+  },
+  {
+  "name": "Tiramisu",
+  "username": "AndrewJohnson",
+  "prep_time": "4 hours",
+  "serving_size": "8 servings",
+  "dish_type": "Sweets",
+  "cuisine": "Italian",
+  "ingredients": "Ladyfingers, Mascarpone cheese, Eggs, Sugar, Espresso coffee, Cocoa powder, Marsala wine (optional)",
+  "instructions": "1. Brew espresso coffee, let cool. 2. Separate eggs, beat yolks with sugar until pale. 3. Mix in mascarpone until smooth. 4. Whip egg whites until stiff peaks form. 5. Fold whites into mascarpone mixture. 6. Dip ladyfingers in coffee, layer with mascarpone mixture in a dish. 7. Refrigerate for at least 4 hours. 8. Dust with cocoa powder before serving.",
+  "description": "Tiramisu is a classic Italian dessert made with layers of espresso-soaked ladyfingers and creamy mascarpone cheese mixture, dusted with cocoa powder. It is rich, creamy, and delicious.",
+  "image_src": "../Recipe pics/Tiramisu.jpg",
+  "short_description": "Classic Italian dessert with coffee-soaked ladyfingers and mascarpone."
   }
 ]
