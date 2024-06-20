@@ -339,7 +339,7 @@ http.createServer(function(req, res)
             var instructions = req.body.instructions;
             var short_description = req.body.short_description;
 
-            var image_src = req.name;
+            var image_src = "../Recipe pics/" + req.body.name + ".jpg";
             
             s = mySess.getMySession();
             myModule.createRecipe(res, { name, prep_time, serving_size, dish_type, cuisine, ingredients, description, instructions, image_src, short_description }, s);
