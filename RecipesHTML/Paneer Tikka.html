@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importing Instrument Serif amd Josefin sans font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Linking favicon -->
+    <link rel="icon" type="image/x-icon" href="http://localhost:3333/?svg=ecipes-svgrepo-com.svg">
+    <!-- Linking CSS styles files -->
+    <link rel="stylesheet" href="http://localhost:3333/?css=styles.css">    <!--Main styles sheet-->
+    <link rel="stylesheet" href="http://localhost:3333/?css=header.css">
+    <link rel="stylesheet" href="http://localhost:3333/?css=item.css">
+    <title>Recipe Item</title>
+</head>
+<body>
+    <header>
+        <div id="header_leftside">
+            <div class="companyname firstline">
+                128
+                <img src="http://localhost:3333/?svg=ecipes-svgrepo-com.svg" alt="128 Recipes logo icon">
+            </div>
+            <div class="companyname">
+                Recipes
+            </div>
+        </div>
+        <div id="header_rightside">
+            <div class="headerdivs">
+                <a class="headerlinks" href="home">
+                    Home
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="recipes">
+                    All Recipes
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="create">
+                    Create
+                </a>
+            </div>
+            <div class="headerdivs">
+                <a class="headerlinks" href="userrecipes">
+                    My Recipes
+                </a>
+            </div>
+            <div id="userbutton">
+                <a href="logout">
+                    <img src="http://localhost:3333/?svg=MaterialSymbolsPersonOutline.svg" alt="user icon" id="usericon">
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="itemdetails">
+            <div id="ownerdetails">
+                <p>
+                    Recipe By:
+                </p>
+                <p>
+                    <span id="recipeowner">
+                        AnanyaSrivastava
+                    </span>
+                </p>
+            </div>
+            <div id="ingredientlist">
+                <p>
+                    <b>
+                        Ingredients:
+                    </b>
+                </p>
+                <div id="ingredientscontainer">
+                                        
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; Paneer
+                        </p>
+                    </div>                    
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; Yogurt
+                        </p>
+                    </div>                    
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; Bell peppers
+                        </p>
+                    </div>                    
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; Onion
+                        </p>
+                    </div>                    
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; Spices (cumin
+                        </p>
+                    </div>                    
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; coriander
+                        </p>
+                    </div>                    
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; turmeric)
+                        </p>
+                    </div>                    
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; Lemon juice
+                        </p>
+                    </div>                    
+                    <div class="ingredientitem">
+                        <p>
+                            &bull; Oil
+                        </p>
+                    </div>                  
+                </div>
+            </div>
+            <div id="instructions">
+                <p>
+                    <b>
+                        Instructions:
+                    </b>
+                </p>
+                <p id="instructiontext">
+                    1. Marinate paneer, veggies in yogurt, spices, lemon juice, oil. 2. Skewer and grill until golden. 3. Serve hot with mint chutney.
+                </p>
+            </div>
+        </div>
+        <div id="item">
+            <div id="itemname">
+                <h1 id="recipename">
+                    Paneer Tikka
+                </h1>
+            </div>
+            <div id="itemprep">
+                <div id="preptime">
+                    <p>
+                        <b>
+                            Prep time:
+                        </b>
+                        <span id="preptimevar">
+                            45 minutes
+                        </span> 
+                    </p>
+                </div>
+                <div id="servingsize">
+                    <p>
+                        <b>
+                            Serving size:
+                        </b>
+                        <span id="servingsizevar">
+                            4 servings
+                        </span>
+                    </p>
+                </div>
+                <div id="ingredients">
+                    <p>
+                        <b>
+                            Ingredients:
+                        </b>
+                        <span id="ingredientsvar">
+                            9
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div id="itemabout">
+                <img src="../Recipe pics/Paneer-Tikka.jpg">
+                <p id="itemtextabout">
+                    Paneer Tikka is a popular Indian appetizer of marinated paneer and vegetables skewered and grilled to perfection, served hot with mint chutney.
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -240,8 +240,6 @@
     "serving_size": "4 servings",
     "dish_type": "Dinner",
     "cuisine": "Thai",
-    "ingredients": "Chicken thighs, Green curry paste, Coconut milk, Bamboo shoots, Thai basil, Fish sauce, Sugar, Vegetable oil",
-    "instructions": "1. Heat oil, add green curry paste, cook until fragrant. 2. Add chicken, stir until browned. 3. Pour in coconut milk, simmer until chicken is cooked. 4. Add bamboo shoots, simmer briefly. 5. Season with fish sauce and sugar. 6. Stir in Thai basil. 7. Serve hot with rice.",
     "description": "Green Curry Chicken is a classic Thai dish made with tender chicken simmered in a flavorful green curry sauce with coconut milk, bamboo shoots, and Thai basil. Best served over steamed rice.",
     "image_src": "../Recipe pics/Green-Curry-Chicken.jpg",
     "short_description": "Spicy Thai chicken curry with coconut milk and bamboo shoots."
